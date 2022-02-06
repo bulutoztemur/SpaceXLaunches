@@ -15,7 +15,7 @@ class LaunchesVM {
     let disposeBag = DisposeBag()
     let launches = BehaviorRelay<[LaunchListQuery.Data.Launch]>(value: [])
     let errorListener = BehaviorRelay<Error?>(value: nil)
-    //var isPaginating = false
+    let currentIndex = BehaviorRelay<Int>(value: 0)
     let isPaginating = BehaviorRelay<Bool>(value: false)
     var hasMore = true
     

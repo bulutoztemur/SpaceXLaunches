@@ -9,7 +9,7 @@ public final class LaunchListQuery: GraphQLQuery {
   public let operationDefinition: String =
     """
     query LaunchList($offset: Int) {
-      launches(offset: $offset, order: "launch_date_utc", sort: "DESC", limit: 10) {
+      launches(offset: $offset, order: "desc", sort: "launch_date_utc", limit: 10) {
         __typename
         mission_name
         launch_date_utc
@@ -58,7 +58,7 @@ public final class LaunchListQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("launches", arguments: ["offset": GraphQLVariable("offset"), "order": "launch_date_utc", "sort": "DESC", "limit": 10], type: .list(.object(Launch.selections))),
+        GraphQLField("launches", arguments: ["offset": GraphQLVariable("offset"), "order": "desc", "sort": "launch_date_utc", "limit": 10], type: .list(.object(Launch.selections))),
       ]
     }
 

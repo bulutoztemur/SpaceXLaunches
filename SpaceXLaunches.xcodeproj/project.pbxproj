@@ -19,13 +19,15 @@
 		8833A04027AFD19300AB09ED /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A03F27AFD19300AB09ED /* API.swift */; };
 		8833A04527AFD1A600AB09ED /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A04427AFD1A600AB09ED /* Network.swift */; };
 		8833A06927AFD4D700AB09ED /* LaunchesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A06727AFD4D700AB09ED /* LaunchesVC.swift */; };
-		8833A06A27AFD4D700AB09ED /* LaunchesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8833A06827AFD4D700AB09ED /* LaunchesVC.xib */; };
 		8833A07227AFD4E400AB09ED /* LaunchesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A07127AFD4E400AB09ED /* LaunchesVM.swift */; };
 		8833A07927AFD4FE00AB09ED /* LaunchDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A07727AFD4FE00AB09ED /* LaunchDetailsVC.swift */; };
 		8833A07A27AFD4FE00AB09ED /* LaunchDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8833A07827AFD4FE00AB09ED /* LaunchDetailsVC.xib */; };
 		8833A08227AFD50700AB09ED /* LaunchDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A08127AFD50700AB09ED /* LaunchDetailsVM.swift */; };
 		8833A09D27AFFE1300AB09ED /* LaunchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A09B27AFFE1300AB09ED /* LaunchCell.swift */; };
 		8833A09E27AFFE1300AB09ED /* LaunchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8833A09C27AFFE1300AB09ED /* LaunchCell.xib */; };
+		8833A0A627B0055200AB09ED /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A0A527B0055200AB09ED /* UITableViewCell+Extension.swift */; };
+		8833A0AB27B0055900AB09ED /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A0AA27B0055900AB09ED /* UITableView+Extension.swift */; };
+		8833A0B427B0186C00AB09ED /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A0B327B0186C00AB09ED /* UIColor+Extension.swift */; };
 		BCDE7E072E2A31C08DF2FE72 /* Pods_SpaceXLaunches_SpaceXLaunchesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28AD4BCD1E4C3ABF535921AD /* Pods_SpaceXLaunches_SpaceXLaunchesUITests.framework */; };
 		EBEA65E6B61D837D2A103343 /* Pods_SpaceXLaunchesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E1CFA6CB6C98BC94C975483 /* Pods_SpaceXLaunchesTests.framework */; };
 /* End PBXBuildFile section */
@@ -72,13 +74,15 @@
 		8833A03F27AFD19300AB09ED /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		8833A04427AFD1A600AB09ED /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		8833A06727AFD4D700AB09ED /* LaunchesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesVC.swift; sourceTree = "<group>"; };
-		8833A06827AFD4D700AB09ED /* LaunchesVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchesVC.xib; sourceTree = "<group>"; };
 		8833A07127AFD4E400AB09ED /* LaunchesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesVM.swift; sourceTree = "<group>"; };
 		8833A07727AFD4FE00AB09ED /* LaunchDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailsVC.swift; sourceTree = "<group>"; };
 		8833A07827AFD4FE00AB09ED /* LaunchDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchDetailsVC.xib; sourceTree = "<group>"; };
 		8833A08127AFD50700AB09ED /* LaunchDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailsVM.swift; sourceTree = "<group>"; };
 		8833A09B27AFFE1300AB09ED /* LaunchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCell.swift; sourceTree = "<group>"; };
 		8833A09C27AFFE1300AB09ED /* LaunchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchCell.xib; sourceTree = "<group>"; };
+		8833A0A527B0055200AB09ED /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
+		8833A0AA27B0055900AB09ED /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		8833A0B327B0186C00AB09ED /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		9AA7B24FDF3FA1F74BC02D3B /* Pods-SpaceXLaunchesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXLaunchesTests.debug.xcconfig"; path = "Target Support Files/Pods-SpaceXLaunchesTests/Pods-SpaceXLaunchesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E310173B84BB4973151B0118 /* Pods-SpaceXLaunches.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXLaunches.release.xcconfig"; path = "Target Support Files/Pods-SpaceXLaunches/Pods-SpaceXLaunches.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -233,7 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				8833A06727AFD4D700AB09ED /* LaunchesVC.swift */,
-				8833A06827AFD4D700AB09ED /* LaunchesVC.xib */,
 				8833A07127AFD4E400AB09ED /* LaunchesVM.swift */,
 			);
 			path = Launches;
@@ -282,6 +285,9 @@
 		8833A08A27AFD55900AB09ED /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				8833A0A527B0055200AB09ED /* UITableViewCell+Extension.swift */,
+				8833A0AA27B0055900AB09ED /* UITableView+Extension.swift */,
+				8833A0B327B0186C00AB09ED /* UIColor+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -424,7 +430,6 @@
 				88339FFD27AFCE1E00AB09ED /* Assets.xcassets in Resources */,
 				8833A09E27AFFE1300AB09ED /* LaunchCell.xib in Resources */,
 				8833A07A27AFD4FE00AB09ED /* LaunchDetailsVC.xib in Resources */,
-				8833A06A27AFD4D700AB09ED /* LaunchesVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,7 +575,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8833A0AB27B0055900AB09ED /* UITableView+Extension.swift in Sources */,
 				8833A04527AFD1A600AB09ED /* Network.swift in Sources */,
+				8833A0A627B0055200AB09ED /* UITableViewCell+Extension.swift in Sources */,
+				8833A0B427B0186C00AB09ED /* UIColor+Extension.swift in Sources */,
 				8833A06927AFD4D700AB09ED /* LaunchesVC.swift in Sources */,
 				8833A07927AFD4FE00AB09ED /* LaunchDetailsVC.swift in Sources */,
 				8833A08227AFD50700AB09ED /* LaunchDetailsVM.swift in Sources */,

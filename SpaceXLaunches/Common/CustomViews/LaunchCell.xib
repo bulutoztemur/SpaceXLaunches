@@ -25,11 +25,10 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lQl-4g-8xC">
                                         <rect key="frame" x="0.0" y="0.0" width="538" height="50"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="crH-zj-w5q">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="SpaceX" translatesAutoresizingMaskIntoConstraints="NO" id="crH-zj-w5q">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="BCK-wF-G26"/>
-                                                    <constraint firstAttribute="width" secondItem="crH-zj-w5q" secondAttribute="height" multiplier="1:1" id="CC1-v6-FZB"/>
                                                     <constraint firstAttribute="width" constant="50" id="Fwd-jf-4Aj"/>
                                                 </constraints>
                                             </imageView>
@@ -44,7 +43,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ip0-kr-J6y">
                                         <rect key="frame" x="0.0" y="68.5" width="538" height="30"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" image="rocket" translatesAutoresizingMaskIntoConstraints="NO" id="eSA-DM-nBN">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="rocket" translatesAutoresizingMaskIntoConstraints="NO" id="eSA-DM-nBN">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="geB-Eh-bx9"/>
@@ -62,7 +61,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qeK-7r-5tX">
                                         <rect key="frame" x="0.0" y="117" width="538" height="20"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" image="pin" translatesAutoresizingMaskIntoConstraints="NO" id="8QM-lx-703">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="pin" translatesAutoresizingMaskIntoConstraints="NO" id="8QM-lx-703">
                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="20" id="bTO-T5-amu"/>
@@ -80,13 +79,18 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.14117647058823529" green="0.14117647058823529" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="cFb-At-J9f" secondAttribute="trailing" constant="8" id="R39-vo-7Aj"/>
                             <constraint firstItem="cFb-At-J9f" firstAttribute="leading" secondItem="WXv-m0-CWo" secondAttribute="leading" constant="8" id="gPB-by-KAm"/>
                             <constraint firstAttribute="bottom" secondItem="cFb-At-J9f" secondAttribute="bottom" constant="8" id="nix-wi-PEa"/>
                             <constraint firstItem="cFb-At-J9f" firstAttribute="top" secondItem="WXv-m0-CWo" secondAttribute="top" constant="8" id="wrI-4i-5HO"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <integer key="value" value="16"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>
@@ -98,10 +102,17 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="missionNameLabel" destination="Jgs-Pb-IRS" id="xc1-hG-rnj"/>
+                <outlet property="missionPatchImageView" destination="crH-zj-w5q" id="qSv-wV-fB5"/>
+                <outlet property="rocketNameLabel" destination="sRH-B4-eNY" id="0iM-HC-YGV"/>
+                <outlet property="siteNameLabel" destination="vnx-LJ-9Qc" id="Gl3-Qh-ZZK"/>
+            </connections>
             <point key="canvasLocation" x="-360.86956521739131" y="47.209821428571423"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="SpaceX" width="2048" height="1536"/>
         <image name="pin" width="128" height="128"/>
         <image name="rocket" width="128" height="128"/>
     </resources>

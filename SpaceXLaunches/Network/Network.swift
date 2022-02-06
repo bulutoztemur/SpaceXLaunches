@@ -12,7 +12,7 @@ import Apollo
 final class Network {
     static let shared = Network()
     private init() {}
-    let apollo = ApolloClient(url: URL(string: "https://api.spacex.land/graphql/")!)
+    private let apollo = ApolloClient(url: URL(string: "https://api.spacex.land/graphql/")!)
     
     func fetch<T: GraphQLQuery>(query: T, successHandler: @escaping (T.Data) -> Void, errorHandler: ((Error) -> Void)?) {
         apollo.fetch(query: query) { result in

@@ -8,12 +8,9 @@
 import UIKit
 
 extension UIViewController {
-    func showPopup(withTitle title: String, message : String, handler: (() -> Void)? = nil) {
+    func showPopup(withTitle title: String, message : String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let OKAction = UIAlertAction(title: "OK", style: .default) { _ in
-            guard let handler = handler else { return }
-            handler()
-        }
+        let OKAction = UIAlertAction(title: "OK", style: .default) 
         alertController.addAction(OKAction)
         self.present(alertController, animated: true, completion: nil)
     }

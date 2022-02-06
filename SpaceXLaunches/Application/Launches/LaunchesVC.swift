@@ -74,7 +74,7 @@ private extension LaunchesVC {
 //MARK:- UISearchResultsUpdating Operation
 extension LaunchesVC: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
-    // TODO
+    viewModel.searchText.accept(searchController.searchBar.text)
   }
 }
 
@@ -88,7 +88,7 @@ private extension LaunchesVC {
     }
     
     func bindLaunches() {
-        viewModel.launches
+        viewModel.filteredLaunches
             .subscribe(onNext: { [weak self] launches in
                 var snapshot = Snapshot()
                 snapshot.appendSections([.main])
@@ -102,7 +102,7 @@ private extension LaunchesVC {
         viewModel.errorListener
             .compactMap{$0}
             .subscribe(onNext: { [weak self] error in
-                self?.showPopup(withTitle: "Network Error", message: error.localizedDescription, handler: { exit(0) })
+                self?.showPopup(withTitle: "Network Error", message: error.localizedDescription)
             })
             .disposed(by: viewModel.disposeBag)
     }
@@ -121,7 +121,7 @@ private extension LaunchesVC {
     func bindCurrentIndex() {
         viewModel.currentIndex
             .subscribe(onNext: { [weak self] currentIndex in
-                if (self?.viewModel.launches.value.count ?? 0) - currentIndex < 3 {
+                if (self?.viewModel.filteredLaunches.value.count ?? 0) - currentIndex < 3 {
                     self?.viewModel.fetch(pagination: true)
                 }
             })

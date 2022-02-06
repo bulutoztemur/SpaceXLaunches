@@ -1,0 +1,24 @@
+query LaunchList($offset: Int) {
+  launches(offset: $offset, order: "launch_date_utc", sort: "DESC", limit: 10) {
+    mission_name
+    launch_date_utc
+    launch_date_local
+    launch_site {
+      site_name_long
+    }
+    links {
+      flickr_images
+      article_link
+      video_link
+    }
+    rocket {
+      rocket_name
+    }
+    ships {
+      home_port
+      image
+      weight_kg
+    }
+  }
+}
+

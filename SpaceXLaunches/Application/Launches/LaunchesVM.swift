@@ -46,8 +46,8 @@ class LaunchesVM {
     func bind() {
         Observable.combineLatest(searchText, launches)
             .subscribe(onNext: { [weak self] text, launches in
-                guard let self = self, let text = text else { return }
-                self.filteredLaunches.accept(launches.filter { ($0.missionName?.lowercased().hasPrefix(text.lowercased()) ?? false)})
+                guard let self = self else { return }
+                self.filteredLaunches.accept(launches.filter { ($0.missionName?.lowercased().hasPrefix(text?.lowercased() ?? "") ?? false)})
             })
             .disposed(by: disposeBag)
     }

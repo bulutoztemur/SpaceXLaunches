@@ -10,28 +10,29 @@ import RxSwift
 import RxCocoa
 
 class LaunchesVM {
-    private let numOfLaunchesForEachFetch = 10
+    private let offsetConstant = 10
     private var offsetMultiplier = 0
     let disposeBag = DisposeBag()
     let launches = BehaviorRelay<[LaunchListQuery.Data.Launch]>(value: [])
+    let errorListener = BehaviorRelay<Error?>(value: nil)
     var isPaginating = false
+    var hasMore = true
     
-    func fetch(_ pagination: Bool = false, errorHandler: @escaping (Error) -> ()) {
+    func fetch(pagination: Bool = false) {
+        guard hasMore else { return }
         if pagination {
             isPaginating = true
         }
-        Network.shared.apollo.fetch(query: LaunchListQuery(offset: offsetMultiplier * numOfLaunchesForEachFetch)) { [weak self] result in
+        
+        Network.shared.fetch(query: LaunchListQuery(offset: offsetMultiplier * offsetConstant)) { [weak self] response in
             guard let self = self else { return }
-            switch result {
-            case .success(let graphQLResult):
-                //print("Success! Result: \(graphQLResult)")
-                let result = graphQLResult.data?.launches?.compactMap({ $0 })
-                self.launches.accept(self.launches.value + (result ?? []))
-                self.offsetMultiplier += 1
-                if pagination { self.isPaginating = false }
-            case .failure(let error):
-                errorHandler(error)
-            }
+            let response = response.launches?.compactMap{$0} ?? []
+            self.launches.accept(self.launches.value + response)
+            self.offsetMultiplier += 1
+            if pagination { self.isPaginating = false }
+            if response.count < 10 { self.hasMore = false }
+        } errorHandler: { error in
+            self.errorListener.accept(error)
         }
     }
 }

@@ -21,7 +21,7 @@ class LaunchesVC: UITableViewController {
         configureView()
         configureSearchController()
         bind()
-        fetchLaunches(pagination: false)
+        viewModel.fetch(pagination: false)
     }
     
     private func configureView() {
@@ -38,12 +38,6 @@ class LaunchesVC: UITableViewController {
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }
-    
-    private func fetchLaunches(pagination: Bool) {
-        viewModel.fetch(pagination) { [weak self] error in
-            self?.showPopup(withTitle: "Network Error", message: error.localizedDescription) { exit(0) }
-        }
-    }
 }
 
 //MARK:- UITableViewDiffableDataSource Operations
@@ -56,13 +50,6 @@ private extension LaunchesVC {
                                         return cell
                                     })
         return dataSource
-    }
-
-    private func applySnapshot(animatingDifferences: Bool = true) {
-        var snapshot = Snapshot()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(viewModel.launches.value)
-        dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }
 }
 
@@ -79,7 +66,7 @@ extension LaunchesVC {
         let position = scrollView.contentOffset.y
         if position > tableView.contentSize.height - scrollView.contentSize.height {
             guard !viewModel.isPaginating else { return }
-            fetchLaunches(pagination: true)
+            viewModel.fetch(pagination: true)
         }
     }
 }
@@ -88,12 +75,25 @@ extension LaunchesVC {
 private extension LaunchesVC {
     func bind() {
         bindLaunches()
+        bindError()
     }
     
     func bindLaunches() {
         viewModel.launches
             .subscribe(onNext: { [weak self] launches in
-                self?.applySnapshot()
+                var snapshot = Snapshot()
+                snapshot.appendSections([.main])
+                snapshot.appendItems(launches)
+                self?.dataSource.apply(snapshot, animatingDifferences: false)
+            })
+            .disposed(by: viewModel.disposeBag)
+    }
+    
+    func bindError() {
+        viewModel.errorListener
+            .compactMap{$0}
+            .subscribe(onNext: { [weak self] error in
+                self?.showPopup(withTitle: "Network Error", message: error.localizedDescription, handler: { exit(0) })
             })
             .disposed(by: viewModel.disposeBag)
     }
@@ -105,7 +105,7 @@ enum Section {
 
 extension LaunchListQuery.Data.Launch: Hashable {
     public func hash(into hasher: inout Hasher) {
-      hasher.combine(id)
+        hasher.combine(id)
     }
 
     public static func == (lhs: LaunchListQuery.Data.Launch, rhs: LaunchListQuery.Data.Launch) -> Bool {

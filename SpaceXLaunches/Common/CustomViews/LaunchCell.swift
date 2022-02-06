@@ -20,7 +20,7 @@ class LaunchCell: UITableViewCell {
             }
             missionNameLabel.text = launch?.missionName
             rocketNameLabel.text = launch?.rocket?.rocketName
-            siteNameLabel.text = launch?.launchSite?.siteName
+            siteNameLabel.text = launch?.launchSite?.siteNameLong
         }
     }
     

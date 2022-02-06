@@ -21,10 +21,13 @@ class LaunchesVC: UITableViewController {
         configureView()
         configureSearchController()
         bind()
-        viewModel.fetch()
+        viewModel.fetch { [weak self] error in
+            self?.showPopup(withTitle: "Network Error", message: error.localizedDescription) { exit(0) }
+        }
     }
     
     private func configureView() {
+        navigationItem.title = "SpaceX Launches"
         tableView.backgroundColor = UIColor(white: 30.0/255.0, alpha: 1)
         tableView.registerWithNib(cellClass: LaunchCell.self)
         tableView.separatorStyle = .none
@@ -35,7 +38,7 @@ class LaunchesVC: UITableViewController {
     private func configureSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Candies"
+        searchController.searchBar.placeholder = "Search"
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }
@@ -52,7 +55,6 @@ private extension LaunchesVC {
                                     })
         return dataSource
     }
-    
 
     private func applySnapshot(animatingDifferences: Bool = true) {
         var snapshot = Snapshot()
@@ -68,7 +70,6 @@ extension LaunchesVC: UISearchResultsUpdating {
     // TODO
   }
 }
-
 
 //MARK:- Binding Operations
 private extension LaunchesVC {

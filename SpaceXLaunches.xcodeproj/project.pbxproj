@@ -14,8 +14,6 @@
 		8833A00027AFCE1E00AB09ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88339FFE27AFCE1E00AB09ED /* LaunchScreen.storyboard */; };
 		8833A00B27AFCE1E00AB09ED /* SpaceXLaunchesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A00A27AFCE1E00AB09ED /* SpaceXLaunchesTests.swift */; };
 		8833A01627AFCE1E00AB09ED /* SpaceXLaunchesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A01527AFCE1E00AB09ED /* SpaceXLaunchesUITests.swift */; };
-		8833A02827AFCECD00AB09ED /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 8833A02727AFCECD00AB09ED /* Apollo */; };
-		8833A02A27AFCECD00AB09ED /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = 8833A02927AFCECD00AB09ED /* ApolloWebSocket */; };
 		8833A04027AFD19300AB09ED /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A03F27AFD19300AB09ED /* API.swift */; };
 		8833A04527AFD1A600AB09ED /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A04427AFD1A600AB09ED /* Network.swift */; };
 		8833A06927AFD4D700AB09ED /* LaunchesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A06727AFD4D700AB09ED /* LaunchesVC.swift */; };
@@ -28,6 +26,9 @@
 		8833A0A627B0055200AB09ED /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A0A527B0055200AB09ED /* UITableViewCell+Extension.swift */; };
 		8833A0AB27B0055900AB09ED /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A0AA27B0055900AB09ED /* UITableView+Extension.swift */; };
 		8833A0B427B0186C00AB09ED /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A0B327B0186C00AB09ED /* UIColor+Extension.swift */; };
+		8833A12027B02C8900AB09ED /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A11F27B02C8900AB09ED /* UIViewController+Extension.swift */; };
+		8833A14427B03B6300AB09ED /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 8833A14327B03B6300AB09ED /* Apollo */; };
+		8833A14627B03B6300AB09ED /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = 8833A14527B03B6300AB09ED /* ApolloWebSocket */; };
 		BCDE7E072E2A31C08DF2FE72 /* Pods_SpaceXLaunches_SpaceXLaunchesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28AD4BCD1E4C3ABF535921AD /* Pods_SpaceXLaunches_SpaceXLaunchesUITests.framework */; };
 		EBEA65E6B61D837D2A103343 /* Pods_SpaceXLaunchesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E1CFA6CB6C98BC94C975483 /* Pods_SpaceXLaunchesTests.framework */; };
 /* End PBXBuildFile section */
@@ -83,6 +84,7 @@
 		8833A0A527B0055200AB09ED /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		8833A0AA27B0055900AB09ED /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		8833A0B327B0186C00AB09ED /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		8833A11F27B02C8900AB09ED /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		9AA7B24FDF3FA1F74BC02D3B /* Pods-SpaceXLaunchesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXLaunchesTests.debug.xcconfig"; path = "Target Support Files/Pods-SpaceXLaunchesTests/Pods-SpaceXLaunchesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E310173B84BB4973151B0118 /* Pods-SpaceXLaunches.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXLaunches.release.xcconfig"; path = "Target Support Files/Pods-SpaceXLaunches/Pods-SpaceXLaunches.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,9 +94,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8833A02827AFCECD00AB09ED /* Apollo in Frameworks */,
-				8833A02A27AFCECD00AB09ED /* ApolloWebSocket in Frameworks */,
 				0083F37B7C52C19148E5979B /* Pods_SpaceXLaunches.framework in Frameworks */,
+				8833A14627B03B6300AB09ED /* ApolloWebSocket in Frameworks */,
+				8833A14427B03B6300AB09ED /* Apollo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +290,7 @@
 				8833A0A527B0055200AB09ED /* UITableViewCell+Extension.swift */,
 				8833A0AA27B0055900AB09ED /* UITableView+Extension.swift */,
 				8833A0B327B0186C00AB09ED /* UIColor+Extension.swift */,
+				8833A11F27B02C8900AB09ED /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -330,8 +333,8 @@
 			);
 			name = SpaceXLaunches;
 			packageProductDependencies = (
-				8833A02727AFCECD00AB09ED /* Apollo */,
-				8833A02927AFCECD00AB09ED /* ApolloWebSocket */,
+				8833A14327B03B6300AB09ED /* Apollo */,
+				8833A14527B03B6300AB09ED /* ApolloWebSocket */,
 			);
 			productName = SpaceXLaunches;
 			productReference = 88339FF027AFCE1D00AB09ED /* SpaceXLaunches.app */;
@@ -408,7 +411,7 @@
 			);
 			mainGroup = 88339FE727AFCE1D00AB09ED;
 			packageReferences = (
-				8833A02627AFCECD00AB09ED /* XCRemoteSwiftPackageReference "apollo-ios" */,
+				8833A14227B03B6300AB09ED /* XCRemoteSwiftPackageReference "apollo-ios" */,
 			);
 			productRefGroup = 88339FF127AFCE1D00AB09ED /* Products */;
 			projectDirPath = "";
@@ -576,6 +579,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8833A0AB27B0055900AB09ED /* UITableView+Extension.swift in Sources */,
+				8833A12027B02C8900AB09ED /* UIViewController+Extension.swift in Sources */,
 				8833A04527AFD1A600AB09ED /* Network.swift in Sources */,
 				8833A0A627B0055200AB09ED /* UITableViewCell+Extension.swift in Sources */,
 				8833A0B427B0186C00AB09ED /* UIColor+Extension.swift in Sources */,
@@ -919,9 +923,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8833A02627AFCECD00AB09ED /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+		8833A14227B03B6300AB09ED /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apollographql/apollo-ios";
+			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 0.50.0;
@@ -930,14 +934,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8833A02727AFCECD00AB09ED /* Apollo */ = {
+		8833A14327B03B6300AB09ED /* Apollo */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8833A02627AFCECD00AB09ED /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			package = 8833A14227B03B6300AB09ED /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = Apollo;
 		};
-		8833A02927AFCECD00AB09ED /* ApolloWebSocket */ = {
+		8833A14527B03B6300AB09ED /* ApolloWebSocket */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8833A02627AFCECD00AB09ED /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			package = 8833A14227B03B6300AB09ED /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = ApolloWebSocket;
 		};
 /* End XCSwiftPackageProductDependency section */

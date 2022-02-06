@@ -10,7 +10,6 @@
 		0083F37B7C52C19148E5979B /* Pods_SpaceXLaunches.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F1B4B3E7A603EB27B66E46B /* Pods_SpaceXLaunches.framework */; };
 		88339FF427AFCE1D00AB09ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88339FF327AFCE1D00AB09ED /* AppDelegate.swift */; };
 		88339FF627AFCE1D00AB09ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88339FF527AFCE1D00AB09ED /* SceneDelegate.swift */; };
-		88339FF827AFCE1D00AB09ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88339FF727AFCE1D00AB09ED /* ViewController.swift */; };
 		88339FFD27AFCE1E00AB09ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88339FFC27AFCE1E00AB09ED /* Assets.xcassets */; };
 		8833A00027AFCE1E00AB09ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88339FFE27AFCE1E00AB09ED /* LaunchScreen.storyboard */; };
 		8833A00B27AFCE1E00AB09ED /* SpaceXLaunchesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A00A27AFCE1E00AB09ED /* SpaceXLaunchesTests.swift */; };
@@ -57,7 +56,6 @@
 		88339FF027AFCE1D00AB09ED /* SpaceXLaunches.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceXLaunches.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88339FF327AFCE1D00AB09ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88339FF527AFCE1D00AB09ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		88339FF727AFCE1D00AB09ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		88339FFC27AFCE1E00AB09ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88339FFF27AFCE1E00AB09ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8833A00127AFCE1E00AB09ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -157,7 +155,6 @@
 				8833A05227AFD45B00AB09ED /* AppDelegate */,
 				8833A03F27AFD19300AB09ED /* API.swift */,
 				8833A03327AFD01600AB09ED /* schema.json */,
-				88339FF727AFCE1D00AB09ED /* ViewController.swift */,
 				8833A03427AFD02600AB09ED /* LaunchList.graphql */,
 			);
 			path = SpaceXLaunches;
@@ -569,7 +566,6 @@
 				8833A04527AFD1A600AB09ED /* Network.swift in Sources */,
 				8833A06927AFD4D700AB09ED /* LaunchesVC.swift in Sources */,
 				8833A07927AFD4FE00AB09ED /* LaunchDetailsVC.swift in Sources */,
-				88339FF827AFCE1D00AB09ED /* ViewController.swift in Sources */,
 				8833A08227AFD50700AB09ED /* LaunchDetailsVM.swift in Sources */,
 				88339FF427AFCE1D00AB09ED /* AppDelegate.swift in Sources */,
 				8833A04027AFD19300AB09ED /* API.swift in Sources */,

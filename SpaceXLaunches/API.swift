@@ -17,12 +17,14 @@ public final class LaunchListQuery: GraphQLQuery {
         launch_site {
           __typename
           site_name_long
+          site_name
         }
         links {
           __typename
           flickr_images
           article_link
           video_link
+          mission_patch
         }
         rocket {
           __typename
@@ -183,6 +185,7 @@ public final class LaunchListQuery: GraphQLQuery {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("site_name_long", type: .scalar(String.self)),
+            GraphQLField("site_name", type: .scalar(String.self)),
           ]
         }
 
@@ -192,8 +195,8 @@ public final class LaunchListQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(siteNameLong: String? = nil) {
-          self.init(unsafeResultMap: ["__typename": "LaunchSite", "site_name_long": siteNameLong])
+        public init(siteNameLong: String? = nil, siteName: String? = nil) {
+          self.init(unsafeResultMap: ["__typename": "LaunchSite", "site_name_long": siteNameLong, "site_name": siteName])
         }
 
         public var __typename: String {
@@ -213,6 +216,15 @@ public final class LaunchListQuery: GraphQLQuery {
             resultMap.updateValue(newValue, forKey: "site_name_long")
           }
         }
+
+        public var siteName: String? {
+          get {
+            return resultMap["site_name"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "site_name")
+          }
+        }
       }
 
       public struct Link: GraphQLSelectionSet {
@@ -224,6 +236,7 @@ public final class LaunchListQuery: GraphQLQuery {
             GraphQLField("flickr_images", type: .list(.scalar(String.self))),
             GraphQLField("article_link", type: .scalar(String.self)),
             GraphQLField("video_link", type: .scalar(String.self)),
+            GraphQLField("mission_patch", type: .scalar(String.self)),
           ]
         }
 
@@ -233,8 +246,8 @@ public final class LaunchListQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(flickrImages: [String?]? = nil, articleLink: String? = nil, videoLink: String? = nil) {
-          self.init(unsafeResultMap: ["__typename": "LaunchLinks", "flickr_images": flickrImages, "article_link": articleLink, "video_link": videoLink])
+        public init(flickrImages: [String?]? = nil, articleLink: String? = nil, videoLink: String? = nil, missionPatch: String? = nil) {
+          self.init(unsafeResultMap: ["__typename": "LaunchLinks", "flickr_images": flickrImages, "article_link": articleLink, "video_link": videoLink, "mission_patch": missionPatch])
         }
 
         public var __typename: String {
@@ -270,6 +283,15 @@ public final class LaunchListQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue, forKey: "video_link")
+          }
+        }
+
+        public var missionPatch: String? {
+          get {
+            return resultMap["mission_patch"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "mission_patch")
           }
         }
       }

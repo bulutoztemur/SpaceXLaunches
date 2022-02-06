@@ -5,11 +5,13 @@ query LaunchList($offset: Int) {
     launch_date_local
     launch_site {
       site_name_long
+      site_name
     }
     links {
       flickr_images
       article_link
       video_link
+      mission_patch
     }
     rocket {
       rocket_name
@@ -21,4 +23,3 @@ query LaunchList($offset: Int) {
     }
   }
 }
-

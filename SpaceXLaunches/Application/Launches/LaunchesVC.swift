@@ -31,6 +31,15 @@ class LaunchesVC: UITableViewController {
         tableView.separatorStyle = .none
     }
     
+    private func createSpinnerTableViewFooter() -> UIView {
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
+        let spinner = UIActivityIndicatorView()
+        spinner.center = footerView.center
+        footerView.addSubview(spinner)
+        spinner.startAnimating()
+        return footerView
+    }
+    
     private func configureSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -65,7 +74,6 @@ extension LaunchesVC {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let position = scrollView.contentOffset.y
         if position > tableView.contentSize.height - scrollView.contentSize.height {
-            guard !viewModel.isPaginating else { return }
             viewModel.fetch(pagination: true)
         }
     }
@@ -76,6 +84,7 @@ private extension LaunchesVC {
     func bind() {
         bindLaunches()
         bindError()
+        bindIsPaginating()
     }
     
     func bindLaunches() {
@@ -94,6 +103,17 @@ private extension LaunchesVC {
             .compactMap{$0}
             .subscribe(onNext: { [weak self] error in
                 self?.showPopup(withTitle: "Network Error", message: error.localizedDescription, handler: { exit(0) })
+            })
+            .disposed(by: viewModel.disposeBag)
+    }
+    
+    func bindIsPaginating() {
+        viewModel.isPaginating
+            .subscribe(onNext: { [weak self] isPaginating in
+                guard let self = self else { return }
+                DispatchQueue.main.async {
+                    self.tableView.tableFooterView = isPaginating ? self.createSpinnerTableViewFooter() : nil
+                }
             })
             .disposed(by: viewModel.disposeBag)
     }

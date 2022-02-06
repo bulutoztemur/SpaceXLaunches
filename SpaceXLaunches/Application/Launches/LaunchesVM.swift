@@ -15,13 +15,14 @@ class LaunchesVM {
     let disposeBag = DisposeBag()
     let launches = BehaviorRelay<[LaunchListQuery.Data.Launch]>(value: [])
     let errorListener = BehaviorRelay<Error?>(value: nil)
-    var isPaginating = false
+    //var isPaginating = false
+    let isPaginating = BehaviorRelay<Bool>(value: false)
     var hasMore = true
     
     func fetch(pagination: Bool = false) {
-        guard hasMore else { return }
+        guard hasMore, !isPaginating.value else { return }
         if pagination {
-            isPaginating = true
+            isPaginating.accept(true)
         }
         
         Network.shared.fetch(query: LaunchListQuery(offset: offsetMultiplier * offsetConstant)) { [weak self] response in
@@ -29,7 +30,7 @@ class LaunchesVM {
             let response = response.launches?.compactMap{$0} ?? []
             self.launches.accept(self.launches.value + response)
             self.offsetMultiplier += 1
-            if pagination { self.isPaginating = false }
+            if pagination { self.isPaginating.accept(false) }
             if response.count < 10 { self.hasMore = false }
         } errorHandler: { error in
             self.errorListener.accept(error)

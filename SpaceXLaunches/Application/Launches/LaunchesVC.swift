@@ -21,9 +21,7 @@ class LaunchesVC: UITableViewController {
         configureView()
         configureSearchController()
         bind()
-        viewModel.fetch { [weak self] error in
-            self?.showPopup(withTitle: "Network Error", message: error.localizedDescription) { exit(0) }
-        }
+        fetchLaunches(pagination: false)
     }
     
     private func configureView() {
@@ -31,8 +29,6 @@ class LaunchesVC: UITableViewController {
         tableView.backgroundColor = UIColor(white: 30.0/255.0, alpha: 1)
         tableView.registerWithNib(cellClass: LaunchCell.self)
         tableView.separatorStyle = .none
-        searchController.searchBar.barStyle = .default
-        
     }
     
     private func configureSearchController() {
@@ -41,6 +37,12 @@ class LaunchesVC: UITableViewController {
         searchController.searchBar.placeholder = "Search"
         navigationItem.searchController = searchController
         definesPresentationContext = true
+    }
+    
+    private func fetchLaunches(pagination: Bool) {
+        viewModel.fetch(pagination) { [weak self] error in
+            self?.showPopup(withTitle: "Network Error", message: error.localizedDescription) { exit(0) }
+        }
     }
 }
 
@@ -71,6 +73,17 @@ extension LaunchesVC: UISearchResultsUpdating {
   }
 }
 
+//MARK:- Listen ScrollView For Pagination
+extension LaunchesVC {
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        if position > tableView.contentSize.height - scrollView.contentSize.height {
+            guard !viewModel.isPaginating else { return }
+            fetchLaunches(pagination: true)
+        }
+    }
+}
+
 //MARK:- Binding Operations
 private extension LaunchesVC {
     func bind() {
@@ -89,7 +102,6 @@ private extension LaunchesVC {
 enum Section {
     case main
 }
-
 
 extension LaunchListQuery.Data.Launch: Hashable {
     public func hash(into hasher: inout Hasher) {

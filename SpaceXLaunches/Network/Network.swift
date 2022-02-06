@@ -9,9 +9,9 @@
 import Foundation
 import Apollo
 
-class Network {
-  static let shared = Network()
-
-  private(set) lazy var apollo = ApolloClient(url: URL(string: "https://api.spacex.land/graphql/")!)
+final class Network {
+    static let shared = Network()
+    private init() {}
+    let apollo = ApolloClient(url: URL(string: "https://api.spacex.land/graphql/")!)
 }
 

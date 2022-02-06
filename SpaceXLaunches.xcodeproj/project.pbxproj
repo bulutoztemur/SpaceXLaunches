@@ -11,15 +11,20 @@
 		88339FF427AFCE1D00AB09ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88339FF327AFCE1D00AB09ED /* AppDelegate.swift */; };
 		88339FF627AFCE1D00AB09ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88339FF527AFCE1D00AB09ED /* SceneDelegate.swift */; };
 		88339FF827AFCE1D00AB09ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88339FF727AFCE1D00AB09ED /* ViewController.swift */; };
-		88339FFB27AFCE1D00AB09ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88339FF927AFCE1D00AB09ED /* Main.storyboard */; };
 		88339FFD27AFCE1E00AB09ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88339FFC27AFCE1E00AB09ED /* Assets.xcassets */; };
 		8833A00027AFCE1E00AB09ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88339FFE27AFCE1E00AB09ED /* LaunchScreen.storyboard */; };
 		8833A00B27AFCE1E00AB09ED /* SpaceXLaunchesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A00A27AFCE1E00AB09ED /* SpaceXLaunchesTests.swift */; };
 		8833A01627AFCE1E00AB09ED /* SpaceXLaunchesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A01527AFCE1E00AB09ED /* SpaceXLaunchesUITests.swift */; };
-		8833A02827AFCECD00AB09ED /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 8833A02727AFCECD00AB09ED /* SwiftPackageProductDependency */; };
-		8833A02A27AFCECD00AB09ED /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 8833A02927AFCECD00AB09ED /* SwiftPackageProductDependency */; };
+		8833A02827AFCECD00AB09ED /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 8833A02727AFCECD00AB09ED /* Apollo */; };
+		8833A02A27AFCECD00AB09ED /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = 8833A02927AFCECD00AB09ED /* ApolloWebSocket */; };
 		8833A04027AFD19300AB09ED /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A03F27AFD19300AB09ED /* API.swift */; };
 		8833A04527AFD1A600AB09ED /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A04427AFD1A600AB09ED /* Network.swift */; };
+		8833A06927AFD4D700AB09ED /* LaunchesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A06727AFD4D700AB09ED /* LaunchesVC.swift */; };
+		8833A06A27AFD4D700AB09ED /* LaunchesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8833A06827AFD4D700AB09ED /* LaunchesVC.xib */; };
+		8833A07227AFD4E400AB09ED /* LaunchesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A07127AFD4E400AB09ED /* LaunchesVM.swift */; };
+		8833A07927AFD4FE00AB09ED /* LaunchDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A07727AFD4FE00AB09ED /* LaunchDetailsVC.swift */; };
+		8833A07A27AFD4FE00AB09ED /* LaunchDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8833A07827AFD4FE00AB09ED /* LaunchDetailsVC.xib */; };
+		8833A08227AFD50700AB09ED /* LaunchDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A08127AFD50700AB09ED /* LaunchDetailsVM.swift */; };
 		BCDE7E072E2A31C08DF2FE72 /* Pods_SpaceXLaunches_SpaceXLaunchesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28AD4BCD1E4C3ABF535921AD /* Pods_SpaceXLaunches_SpaceXLaunchesUITests.framework */; };
 		EBEA65E6B61D837D2A103343 /* Pods_SpaceXLaunchesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E1CFA6CB6C98BC94C975483 /* Pods_SpaceXLaunchesTests.framework */; };
 /* End PBXBuildFile section */
@@ -53,7 +58,6 @@
 		88339FF327AFCE1D00AB09ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88339FF527AFCE1D00AB09ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		88339FF727AFCE1D00AB09ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		88339FFA27AFCE1D00AB09ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		88339FFC27AFCE1E00AB09ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88339FFF27AFCE1E00AB09ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8833A00127AFCE1E00AB09ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,6 +71,12 @@
 		8833A03427AFD02600AB09ED /* LaunchList.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LaunchList.graphql; sourceTree = "<group>"; };
 		8833A03F27AFD19300AB09ED /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		8833A04427AFD1A600AB09ED /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		8833A06727AFD4D700AB09ED /* LaunchesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesVC.swift; sourceTree = "<group>"; };
+		8833A06827AFD4D700AB09ED /* LaunchesVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchesVC.xib; sourceTree = "<group>"; };
+		8833A07127AFD4E400AB09ED /* LaunchesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesVM.swift; sourceTree = "<group>"; };
+		8833A07727AFD4FE00AB09ED /* LaunchDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailsVC.swift; sourceTree = "<group>"; };
+		8833A07827AFD4FE00AB09ED /* LaunchDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchDetailsVC.xib; sourceTree = "<group>"; };
+		8833A08127AFD50700AB09ED /* LaunchDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailsVM.swift; sourceTree = "<group>"; };
 		9AA7B24FDF3FA1F74BC02D3B /* Pods-SpaceXLaunchesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXLaunchesTests.debug.xcconfig"; path = "Target Support Files/Pods-SpaceXLaunchesTests/Pods-SpaceXLaunchesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E310173B84BB4973151B0118 /* Pods-SpaceXLaunches.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXLaunches.release.xcconfig"; path = "Target Support Files/Pods-SpaceXLaunches/Pods-SpaceXLaunches.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,8 +86,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8833A02827AFCECD00AB09ED /* BuildFile in Frameworks */,
-				8833A02A27AFCECD00AB09ED /* BuildFile in Frameworks */,
+				8833A02827AFCECD00AB09ED /* Apollo in Frameworks */,
+				8833A02A27AFCECD00AB09ED /* ApolloWebSocket in Frameworks */,
 				0083F37B7C52C19148E5979B /* Pods_SpaceXLaunches.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,7 +121,6 @@
 				9AA7B24FDF3FA1F74BC02D3B /* Pods-SpaceXLaunchesTests.debug.xcconfig */,
 				681B5CF6C0399968DD32B36B /* Pods-SpaceXLaunchesTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -140,17 +149,16 @@
 		88339FF227AFCE1D00AB09ED /* SpaceXLaunches */ = {
 			isa = PBXGroup;
 			children = (
+				8833A08B27AFD56400AB09ED /* Network */,
+				8833A05627AFD47200AB09ED /* Common */,
+				8833A05527AFD46C00AB09ED /* Resources */,
+				8833A05427AFD46700AB09ED /* Application */,
+				8833A05327AFD46000AB09ED /* SupportingFiles */,
+				8833A05227AFD45B00AB09ED /* AppDelegate */,
 				8833A03F27AFD19300AB09ED /* API.swift */,
 				8833A03327AFD01600AB09ED /* schema.json */,
-				88339FF327AFCE1D00AB09ED /* AppDelegate.swift */,
-				88339FF527AFCE1D00AB09ED /* SceneDelegate.swift */,
 				88339FF727AFCE1D00AB09ED /* ViewController.swift */,
-				88339FF927AFCE1D00AB09ED /* Main.storyboard */,
-				88339FFC27AFCE1E00AB09ED /* Assets.xcassets */,
-				88339FFE27AFCE1E00AB09ED /* LaunchScreen.storyboard */,
-				8833A00127AFCE1E00AB09ED /* Info.plist */,
 				8833A03427AFD02600AB09ED /* LaunchList.graphql */,
-				8833A04427AFD1A600AB09ED /* Network.swift */,
 			);
 			path = SpaceXLaunches;
 			sourceTree = "<group>";
@@ -171,6 +179,116 @@
 				8833A01727AFCE1E00AB09ED /* Info.plist */,
 			);
 			path = SpaceXLaunchesUITests;
+			sourceTree = "<group>";
+		};
+		8833A05227AFD45B00AB09ED /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				88339FF327AFCE1D00AB09ED /* AppDelegate.swift */,
+				88339FF527AFCE1D00AB09ED /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		8833A05327AFD46000AB09ED /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				88339FFE27AFCE1E00AB09ED /* LaunchScreen.storyboard */,
+				8833A00127AFCE1E00AB09ED /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		8833A05427AFD46700AB09ED /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				8833A07627AFD4EA00AB09ED /* LaunchDetails */,
+				8833A06627AFD4C700AB09ED /* Launches */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		8833A05527AFD46C00AB09ED /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				88339FFC27AFCE1E00AB09ED /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8833A05627AFD47200AB09ED /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8833A08A27AFD55900AB09ED /* Extensions */,
+				8833A08927AFD54400AB09ED /* Utils */,
+				8833A08827AFD53F00AB09ED /* Models */,
+				8833A08727AFD53A00AB09ED /* Protocols */,
+				8833A08627AFD53200AB09ED /* CustomViews */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		8833A06627AFD4C700AB09ED /* Launches */ = {
+			isa = PBXGroup;
+			children = (
+				8833A06727AFD4D700AB09ED /* LaunchesVC.swift */,
+				8833A06827AFD4D700AB09ED /* LaunchesVC.xib */,
+				8833A07127AFD4E400AB09ED /* LaunchesVM.swift */,
+			);
+			path = Launches;
+			sourceTree = "<group>";
+		};
+		8833A07627AFD4EA00AB09ED /* LaunchDetails */ = {
+			isa = PBXGroup;
+			children = (
+				8833A07727AFD4FE00AB09ED /* LaunchDetailsVC.swift */,
+				8833A07827AFD4FE00AB09ED /* LaunchDetailsVC.xib */,
+				8833A08127AFD50700AB09ED /* LaunchDetailsVM.swift */,
+			);
+			path = LaunchDetails;
+			sourceTree = "<group>";
+		};
+		8833A08627AFD53200AB09ED /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		8833A08727AFD53A00AB09ED /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8833A08827AFD53F00AB09ED /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8833A08927AFD54400AB09ED /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		8833A08A27AFD55900AB09ED /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8833A08B27AFD56400AB09ED /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8833A04427AFD1A600AB09ED /* Network.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		C4F6EDD30E71104378B6A680 /* Frameworks */ = {
@@ -203,8 +321,8 @@
 			);
 			name = SpaceXLaunches;
 			packageProductDependencies = (
-				8833A02727AFCECD00AB09ED /* SwiftPackageProductDependency */,
-				8833A02927AFCECD00AB09ED /* SwiftPackageProductDependency */,
+				8833A02727AFCECD00AB09ED /* Apollo */,
+				8833A02927AFCECD00AB09ED /* ApolloWebSocket */,
 			);
 			productName = SpaceXLaunches;
 			productReference = 88339FF027AFCE1D00AB09ED /* SpaceXLaunches.app */;
@@ -281,7 +399,7 @@
 			);
 			mainGroup = 88339FE727AFCE1D00AB09ED;
 			packageReferences = (
-				8833A02627AFCECD00AB09ED /* RemoteSwiftPackageReference */,
+				8833A02627AFCECD00AB09ED /* XCRemoteSwiftPackageReference "apollo-ios" */,
 			);
 			productRefGroup = 88339FF127AFCE1D00AB09ED /* Products */;
 			projectDirPath = "";
@@ -301,7 +419,8 @@
 			files = (
 				8833A00027AFCE1E00AB09ED /* LaunchScreen.storyboard in Resources */,
 				88339FFD27AFCE1E00AB09ED /* Assets.xcassets in Resources */,
-				88339FFB27AFCE1D00AB09ED /* Main.storyboard in Resources */,
+				8833A07A27AFD4FE00AB09ED /* LaunchDetailsVC.xib in Resources */,
+				8833A06A27AFD4D700AB09ED /* LaunchesVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,10 +567,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8833A04527AFD1A600AB09ED /* Network.swift in Sources */,
+				8833A06927AFD4D700AB09ED /* LaunchesVC.swift in Sources */,
+				8833A07927AFD4FE00AB09ED /* LaunchDetailsVC.swift in Sources */,
 				88339FF827AFCE1D00AB09ED /* ViewController.swift in Sources */,
+				8833A08227AFD50700AB09ED /* LaunchDetailsVM.swift in Sources */,
 				88339FF427AFCE1D00AB09ED /* AppDelegate.swift in Sources */,
 				8833A04027AFD19300AB09ED /* API.swift in Sources */,
 				88339FF627AFCE1D00AB09ED /* SceneDelegate.swift in Sources */,
+				8833A07227AFD4E400AB09ED /* LaunchesVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,14 +610,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		88339FF927AFCE1D00AB09ED /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				88339FFA27AFCE1D00AB09ED /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		88339FFE27AFCE1E00AB09ED /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -630,7 +745,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 65S558ZT4U;
-				INFOPLIST_FILE = SpaceXLaunches/Info.plist;
+				INFOPLIST_FILE = SpaceXLaunches/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -650,7 +765,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 65S558ZT4U;
-				INFOPLIST_FILE = SpaceXLaunches/Info.plist;
+				INFOPLIST_FILE = SpaceXLaunches/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -792,7 +907,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8833A02627AFCECD00AB09ED /* RemoteSwiftPackageReference */ = {
+		8833A02627AFCECD00AB09ED /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apollographql/apollo-ios";
 			requirement = {
@@ -803,14 +918,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8833A02727AFCECD00AB09ED /* SwiftPackageProductDependency */ = {
+		8833A02727AFCECD00AB09ED /* Apollo */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8833A02627AFCECD00AB09ED /* RemoteSwiftPackageReference */;
+			package = 8833A02627AFCECD00AB09ED /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = Apollo;
 		};
-		8833A02927AFCECD00AB09ED /* SwiftPackageProductDependency */ = {
+		8833A02927AFCECD00AB09ED /* ApolloWebSocket */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8833A02627AFCECD00AB09ED /* RemoteSwiftPackageReference */;
+			package = 8833A02627AFCECD00AB09ED /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = ApolloWebSocket;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -8,6 +8,8 @@ target 'SpaceXLaunches' do
   # Pods for SpaceXLaunches
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'SDWebImage'
+
   target 'SpaceXLaunchesTests' do
     inherit! :search_paths
     # Pods for testing

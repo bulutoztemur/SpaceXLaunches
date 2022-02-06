@@ -6,12 +6,21 @@
 //
 
 import UIKit
+import SDWebImage
 
 class LaunchCell: UITableViewCell {
     
     var launch: LaunchListQuery.Data.Launch? {
         didSet {
+            let placeholder = UIImage(named: "SpaceX")
+            if let missionPatch = launch?.links?.missionPatch {
+              self.missionPatchImageView.sd_setImage(with: URL(string: missionPatch)!, placeholderImage: placeholder)
+            } else {
+              self.missionPatchImageView.image = placeholder
+            }
             missionNameLabel.text = launch?.missionName
+            rocketNameLabel.text = launch?.rocket?.rocketName
+            siteNameLabel.text = launch?.launchSite?.siteName
         }
     }
     

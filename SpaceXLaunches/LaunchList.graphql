@@ -21,5 +21,6 @@ query LaunchList($offset: Int) {
       image
       weight_kg
     }
+    id
   }
 }

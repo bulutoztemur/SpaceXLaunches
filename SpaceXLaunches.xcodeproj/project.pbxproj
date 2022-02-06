@@ -24,6 +24,8 @@
 		8833A07927AFD4FE00AB09ED /* LaunchDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A07727AFD4FE00AB09ED /* LaunchDetailsVC.swift */; };
 		8833A07A27AFD4FE00AB09ED /* LaunchDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8833A07827AFD4FE00AB09ED /* LaunchDetailsVC.xib */; };
 		8833A08227AFD50700AB09ED /* LaunchDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A08127AFD50700AB09ED /* LaunchDetailsVM.swift */; };
+		8833A09D27AFFE1300AB09ED /* LaunchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A09B27AFFE1300AB09ED /* LaunchCell.swift */; };
+		8833A09E27AFFE1300AB09ED /* LaunchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8833A09C27AFFE1300AB09ED /* LaunchCell.xib */; };
 		BCDE7E072E2A31C08DF2FE72 /* Pods_SpaceXLaunches_SpaceXLaunchesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28AD4BCD1E4C3ABF535921AD /* Pods_SpaceXLaunches_SpaceXLaunchesUITests.framework */; };
 		EBEA65E6B61D837D2A103343 /* Pods_SpaceXLaunchesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E1CFA6CB6C98BC94C975483 /* Pods_SpaceXLaunchesTests.framework */; };
 /* End PBXBuildFile section */
@@ -75,6 +77,8 @@
 		8833A07727AFD4FE00AB09ED /* LaunchDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailsVC.swift; sourceTree = "<group>"; };
 		8833A07827AFD4FE00AB09ED /* LaunchDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchDetailsVC.xib; sourceTree = "<group>"; };
 		8833A08127AFD50700AB09ED /* LaunchDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailsVM.swift; sourceTree = "<group>"; };
+		8833A09B27AFFE1300AB09ED /* LaunchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCell.swift; sourceTree = "<group>"; };
+		8833A09C27AFFE1300AB09ED /* LaunchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchCell.xib; sourceTree = "<group>"; };
 		9AA7B24FDF3FA1F74BC02D3B /* Pods-SpaceXLaunchesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXLaunchesTests.debug.xcconfig"; path = "Target Support Files/Pods-SpaceXLaunchesTests/Pods-SpaceXLaunchesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E310173B84BB4973151B0118 /* Pods-SpaceXLaunches.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXLaunches.release.xcconfig"; path = "Target Support Files/Pods-SpaceXLaunches/Pods-SpaceXLaunches.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -248,6 +252,8 @@
 		8833A08627AFD53200AB09ED /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				8833A09B27AFFE1300AB09ED /* LaunchCell.swift */,
+				8833A09C27AFFE1300AB09ED /* LaunchCell.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -416,6 +422,7 @@
 			files = (
 				8833A00027AFCE1E00AB09ED /* LaunchScreen.storyboard in Resources */,
 				88339FFD27AFCE1E00AB09ED /* Assets.xcassets in Resources */,
+				8833A09E27AFFE1300AB09ED /* LaunchCell.xib in Resources */,
 				8833A07A27AFD4FE00AB09ED /* LaunchDetailsVC.xib in Resources */,
 				8833A06A27AFD4D700AB09ED /* LaunchesVC.xib in Resources */,
 			);
@@ -571,6 +578,7 @@
 				8833A04027AFD19300AB09ED /* API.swift in Sources */,
 				88339FF627AFCE1D00AB09ED /* SceneDelegate.swift in Sources */,
 				8833A07227AFD4E400AB09ED /* LaunchesVM.swift in Sources */,
+				8833A09D27AFFE1300AB09ED /* LaunchCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

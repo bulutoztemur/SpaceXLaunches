@@ -36,6 +36,7 @@ public final class LaunchListQuery: GraphQLQuery {
           image
           weight_kg
         }
+        id
       }
     }
     """
@@ -93,6 +94,7 @@ public final class LaunchListQuery: GraphQLQuery {
           GraphQLField("links", type: .object(Link.selections)),
           GraphQLField("rocket", type: .object(Rocket.selections)),
           GraphQLField("ships", type: .list(.object(Ship.selections))),
+          GraphQLField("id", type: .scalar(GraphQLID.self)),
         ]
       }
 
@@ -102,8 +104,8 @@ public final class LaunchListQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(missionName: String? = nil, launchDateUtc: String? = nil, launchDateLocal: String? = nil, launchSite: LaunchSite? = nil, links: Link? = nil, rocket: Rocket? = nil, ships: [Ship?]? = nil) {
-        self.init(unsafeResultMap: ["__typename": "Launch", "mission_name": missionName, "launch_date_utc": launchDateUtc, "launch_date_local": launchDateLocal, "launch_site": launchSite.flatMap { (value: LaunchSite) -> ResultMap in value.resultMap }, "links": links.flatMap { (value: Link) -> ResultMap in value.resultMap }, "rocket": rocket.flatMap { (value: Rocket) -> ResultMap in value.resultMap }, "ships": ships.flatMap { (value: [Ship?]) -> [ResultMap?] in value.map { (value: Ship?) -> ResultMap? in value.flatMap { (value: Ship) -> ResultMap in value.resultMap } } }])
+      public init(missionName: String? = nil, launchDateUtc: String? = nil, launchDateLocal: String? = nil, launchSite: LaunchSite? = nil, links: Link? = nil, rocket: Rocket? = nil, ships: [Ship?]? = nil, id: GraphQLID? = nil) {
+        self.init(unsafeResultMap: ["__typename": "Launch", "mission_name": missionName, "launch_date_utc": launchDateUtc, "launch_date_local": launchDateLocal, "launch_site": launchSite.flatMap { (value: LaunchSite) -> ResultMap in value.resultMap }, "links": links.flatMap { (value: Link) -> ResultMap in value.resultMap }, "rocket": rocket.flatMap { (value: Rocket) -> ResultMap in value.resultMap }, "ships": ships.flatMap { (value: [Ship?]) -> [ResultMap?] in value.map { (value: Ship?) -> ResultMap? in value.flatMap { (value: Ship) -> ResultMap in value.resultMap } } }, "id": id])
       }
 
       public var __typename: String {
@@ -175,6 +177,15 @@ public final class LaunchListQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue.flatMap { (value: [Ship?]) -> [ResultMap?] in value.map { (value: Ship?) -> ResultMap? in value.flatMap { (value: Ship) -> ResultMap in value.resultMap } } }, forKey: "ships")
+        }
+      }
+
+      public var id: GraphQLID? {
+        get {
+          return resultMap["id"] as? GraphQLID
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "id")
         }
       }
 

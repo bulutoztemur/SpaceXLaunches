@@ -17,7 +17,7 @@ class LaunchesVM {
     let filteredLaunches = BehaviorRelay<[LaunchListQuery.Data.Launch]>(value: [])
     let errorListener = BehaviorRelay<Error?>(value: nil)
     let currentIndex = BehaviorRelay<Int>(value: 0)
-    let isPaginating = BehaviorRelay<Bool>(value: false)
+    let isLoading = BehaviorRelay<Bool>(value: false)
     let searchText = BehaviorRelay<String?>(value: nil)
     var hasMore = true
     
@@ -25,18 +25,16 @@ class LaunchesVM {
         bind()
     }
     
-    func fetch(pagination: Bool = false) {
-        guard hasMore, !isPaginating.value else { return }
-        if pagination {
-            isPaginating.accept(true)
-        }
+    func fetch() {
+        guard hasMore, !isLoading.value else { return }
+        isLoading.accept(true)
         
         Network.shared.fetch(query: LaunchListQuery(offset: offsetMultiplier * offsetConstant)) { [weak self] response in
             guard let self = self else { return }
             let response = response.launches?.compactMap{$0} ?? []
             self.launches.accept(self.launches.value + response)
             self.offsetMultiplier += 1
-            if pagination { self.isPaginating.accept(false) }
+            self.isLoading.accept(false)
             if response.count < 10 { self.hasMore = false }
         } errorHandler: { error in
             self.errorListener.accept(error)

@@ -20,7 +20,6 @@ class LaunchesVC: UITableViewController {
         super.viewDidLoad()
         configureView()
         bind()
-        viewModel.fetch(pagination: false)
     }
     
 }
@@ -42,6 +41,8 @@ private extension LaunchesVC {
     func createSpinnerTableViewFooter() -> UIView {
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
         let spinner = UIActivityIndicatorView()
+        spinner.color = .white
+        spinner.transform = CGAffineTransform(scaleX: 3, y: 3)
         spinner.center = footerView.center
         footerView.addSubview(spinner)
         spinner.startAnimating()
@@ -108,11 +109,11 @@ private extension LaunchesVC {
     }
     
     func bindIsPaginating() {
-        viewModel.isPaginating
-            .subscribe(onNext: { [weak self] isPaginating in
+        viewModel.isLoading
+            .subscribe(onNext: { [weak self] isLoading in
                 guard let self = self else { return }
                 DispatchQueue.main.async {
-                    self.tableView.tableFooterView = isPaginating ? self.createSpinnerTableViewFooter() : nil
+                    self.tableView.tableFooterView = isLoading ? self.createSpinnerTableViewFooter() : nil
                 }
             })
             .disposed(by: viewModel.disposeBag)
@@ -121,8 +122,9 @@ private extension LaunchesVC {
     func bindCurrentIndex() {
         viewModel.currentIndex
             .subscribe(onNext: { [weak self] currentIndex in
-                if (self?.viewModel.filteredLaunches.value.count ?? 0) - currentIndex < 3 {
-                    self?.viewModel.fetch(pagination: true)
+                guard let self = self else { return }
+                if self.viewModel.filteredLaunches.value.count - currentIndex < 3 {
+                    self.viewModel.fetch()
                 }
             })
             .disposed(by: viewModel.disposeBag)

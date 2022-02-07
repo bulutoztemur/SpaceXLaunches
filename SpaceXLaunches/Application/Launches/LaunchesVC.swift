@@ -27,9 +27,14 @@ class LaunchesVC: UITableViewController {
 //MARK:- View Configuration Operations
 private extension LaunchesVC {
     func configureView() {
-        navigationItem.title = "SpaceX Launches"
+        configureNavigationBar()
         configureTableView()
         configureSearchController()
+    }
+    
+    func configureNavigationBar() {
+        navigationItem.title = "SpaceX Launches"
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
     }
     
     func configureTableView() {
@@ -52,7 +57,7 @@ private extension LaunchesVC {
     func configureSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.placeholder = "Search by Mission Name"
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }

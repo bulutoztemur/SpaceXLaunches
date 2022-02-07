@@ -11,10 +11,10 @@ class LaunchesVC: UITableViewController {
     private enum Section {
         case main
     }
-
+    
     private typealias DataSource = UITableViewDiffableDataSource<Section, LaunchListQuery.Data.Launch>
     private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, LaunchListQuery.Data.Launch>
-
+    
     private let viewModel = LaunchesVM()
     private lazy var dataSource = makeDataSource()
     private let searchController = UISearchController(searchResultsController: nil)
@@ -69,22 +69,30 @@ private extension LaunchesVC {
 //MARK:- UITableViewDiffableDataSource Operations
 private extension LaunchesVC {
     private func makeDataSource() -> DataSource {
-        let dataSource = DataSource(tableView: tableView,
-                                    cellProvider: { [weak self] (tableView, indexPath, launch) -> UITableViewCell? in
-                                        self?.viewModel.currentIndex.accept(indexPath.row)
-                                        let cell = tableView.dequeueReusableCell(withIdentifier: LaunchCell.reuseIdentifier, for: indexPath) as? LaunchCell
-                                        cell?.launch = launch
-                                        return cell
-                                    })
-        return dataSource
+        return DataSource(tableView: tableView,
+                          cellProvider: { [weak self] (tableView, indexPath, launch) -> UITableViewCell? in
+                            self?.viewModel.currentIndex.accept(indexPath.row)
+                            let cell = tableView.dequeueReusableCell(withIdentifier: LaunchCell.reuseIdentifier, for: indexPath) as? LaunchCell
+                            cell?.launch = launch
+                            return cell
+                          })
+    }
+}
+
+extension LaunchesVC {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let launchId = viewModel.launches.value[indexPath.row].id else { return }
+        let launchDetailVC = LaunchDetailsVC(id: launchId)
+        navigationController?.pushViewController(launchDetailVC, animated: true)
+        
     }
 }
 
 //MARK:- UISearchResultsUpdating Operation
 extension LaunchesVC: UISearchResultsUpdating {
-  func updateSearchResults(for searchController: UISearchController) {
-    viewModel.searchText.accept(searchController.searchBar.text)
-  }
+    func updateSearchResults(for searchController: UISearchController) {
+        viewModel.searchText.accept(searchController.searchBar.text)
+    }
 }
 
 //MARK:- Binding Operations
@@ -145,7 +153,7 @@ extension LaunchListQuery.Data.Launch: Hashable {
         hasher.combine(missionName)
         hasher.combine(id)
     }
-
+    
     public static func == (lhs: LaunchListQuery.Data.Launch, rhs: LaunchListQuery.Data.Launch) -> Bool {
         return lhs.launchDateUtc == rhs.launchDateUtc &&
             lhs.missionName == rhs.missionName &&

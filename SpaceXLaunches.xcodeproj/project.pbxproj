@@ -29,6 +29,7 @@
 		8833A12027B02C8900AB09ED /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833A11F27B02C8900AB09ED /* UIViewController+Extension.swift */; };
 		8833A14427B03B6300AB09ED /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 8833A14327B03B6300AB09ED /* Apollo */; };
 		8833A14627B03B6300AB09ED /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = 8833A14527B03B6300AB09ED /* ApolloWebSocket */; };
+		8833A15D27B1142600AB09ED /* LaunchDetail.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 8833A15C27B1142600AB09ED /* LaunchDetail.graphql */; };
 		BCDE7E072E2A31C08DF2FE72 /* Pods_SpaceXLaunches_SpaceXLaunchesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28AD4BCD1E4C3ABF535921AD /* Pods_SpaceXLaunches_SpaceXLaunchesUITests.framework */; };
 		EBEA65E6B61D837D2A103343 /* Pods_SpaceXLaunchesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E1CFA6CB6C98BC94C975483 /* Pods_SpaceXLaunchesTests.framework */; };
 /* End PBXBuildFile section */
@@ -85,6 +86,7 @@
 		8833A0AA27B0055900AB09ED /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		8833A0B327B0186C00AB09ED /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		8833A11F27B02C8900AB09ED /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		8833A15C27B1142600AB09ED /* LaunchDetail.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LaunchDetail.graphql; sourceTree = "<group>"; };
 		9AA7B24FDF3FA1F74BC02D3B /* Pods-SpaceXLaunchesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXLaunchesTests.debug.xcconfig"; path = "Target Support Files/Pods-SpaceXLaunchesTests/Pods-SpaceXLaunchesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E310173B84BB4973151B0118 /* Pods-SpaceXLaunches.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXLaunches.release.xcconfig"; path = "Target Support Files/Pods-SpaceXLaunches/Pods-SpaceXLaunches.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,6 +168,7 @@
 				8833A03F27AFD19300AB09ED /* API.swift */,
 				8833A03327AFD01600AB09ED /* schema.json */,
 				8833A03427AFD02600AB09ED /* LaunchList.graphql */,
+				8833A15C27B1142600AB09ED /* LaunchDetail.graphql */,
 			);
 			path = SpaceXLaunches;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8833A00027AFCE1E00AB09ED /* LaunchScreen.storyboard in Resources */,
+				8833A15D27B1142600AB09ED /* LaunchDetail.graphql in Resources */,
 				88339FFD27AFCE1E00AB09ED /* Assets.xcassets in Resources */,
 				8833A09E27AFFE1300AB09ED /* LaunchCell.xib in Resources */,
 				8833A07A27AFD4FE00AB09ED /* LaunchDetailsVC.xib in Resources */,

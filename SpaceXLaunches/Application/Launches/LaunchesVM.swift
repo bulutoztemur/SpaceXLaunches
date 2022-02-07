@@ -13,7 +13,7 @@ class LaunchesVM {
     private let offsetConstant = 10
     private var offsetMultiplier = 0
     let disposeBag = DisposeBag()
-    let launches = BehaviorRelay<[LaunchListQuery.Data.Launch]>(value: [])
+    private let launches = BehaviorRelay<[LaunchListQuery.Data.Launch]>(value: [])
     let filteredLaunches = BehaviorRelay<[LaunchListQuery.Data.Launch]>(value: [])
     let errorListener = BehaviorRelay<Error?>(value: nil)
     let currentIndex = BehaviorRelay<Int>(value: 0)

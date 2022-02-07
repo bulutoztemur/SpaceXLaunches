@@ -81,7 +81,7 @@ private extension LaunchesVC {
 
 extension LaunchesVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let launchId = viewModel.launches.value[indexPath.row].id else { return }
+        guard let launchId = viewModel.filteredLaunches.value[indexPath.row].id else { return }
         let launchDetailVC = LaunchDetailsVC(id: launchId)
         navigationController?.pushViewController(launchDetailVC, animated: true)
         

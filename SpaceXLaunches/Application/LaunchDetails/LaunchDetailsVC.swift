@@ -8,6 +8,7 @@
 import UIKit
 
 class LaunchDetailsVC: UIViewController {
+    private let viewModel = LaunchDetailsVM()
     private let launchId: String
 
     init(id: String) {
@@ -21,6 +22,7 @@ class LaunchDetailsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.fetchDetails(id: launchId)
     }
 
 

@@ -1,22 +1,88 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LaunchDetailsVC" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LaunchDetailsVC" customModule="SpaceXLaunches" customModuleProvider="target">
             <connections>
+                <outlet property="imageSlideShow" destination="J7K-SJ-VXl" id="oS0-03-ob7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="ytPlayerView" destination="rHE-Ms-80N" id="hEA-0l-92a"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3LT-ll-pWd">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="auZ-rx-u30">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rHE-Ms-80N" customClass="YTPlayerView">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="300" id="fg8-cT-Y4Y"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4x-Eb-b87">
+                                    <rect key="frame" x="0.0" y="306" width="414" height="20.5"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J7K-SJ-VXl" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                    <rect key="frame" x="0.0" y="332.5" width="414" height="300"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="300" id="vMV-IC-tuz"/>
+                                    </constraints>
+                                </view>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5fd-yq-13q">
+                                    <rect key="frame" x="0.0" y="638.5" width="414" height="257.5"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </tableView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="rHE-Ms-80N" firstAttribute="leading" secondItem="auZ-rx-u30" secondAttribute="leading" id="DYA-IE-fSG"/>
+                                <constraint firstItem="5fd-yq-13q" firstAttribute="leading" secondItem="auZ-rx-u30" secondAttribute="leading" id="VVd-1U-OS3"/>
+                                <constraint firstItem="S4x-Eb-b87" firstAttribute="leading" secondItem="auZ-rx-u30" secondAttribute="leading" id="hNj-wd-7pG"/>
+                                <constraint firstItem="J7K-SJ-VXl" firstAttribute="leading" secondItem="auZ-rx-u30" secondAttribute="leading" id="tnT-TP-XOB"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="auZ-rx-u30" firstAttribute="leading" secondItem="3LT-ll-pWd" secondAttribute="leading" id="Drx-cK-Ugm"/>
+                        <constraint firstAttribute="width" secondItem="auZ-rx-u30" secondAttribute="width" id="PVp-AU-CsQ"/>
+                        <constraint firstItem="auZ-rx-u30" firstAttribute="top" secondItem="3LT-ll-pWd" secondAttribute="top" id="QtX-rH-l8j"/>
+                        <constraint firstAttribute="bottom" secondItem="auZ-rx-u30" secondAttribute="bottom" id="grB-cd-6XZ"/>
+                        <constraint firstAttribute="trailing" secondItem="auZ-rx-u30" secondAttribute="trailing" id="iik-DJ-7oT"/>
+                        <constraint firstItem="auZ-rx-u30" firstAttribute="centerY" secondItem="3LT-ll-pWd" secondAttribute="centerY" id="v6b-SH-PIp"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="3LT-ll-pWd" secondAttribute="bottom" id="Pkz-Dd-cGH"/>
+                <constraint firstAttribute="trailing" secondItem="3LT-ll-pWd" secondAttribute="trailing" id="chr-bD-Fx0"/>
+                <constraint firstItem="3LT-ll-pWd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gvJ-wN-OTJ"/>
+                <constraint firstItem="3LT-ll-pWd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hyJ-qS-E2A"/>
+            </constraints>
+            <point key="canvasLocation" x="-346" y="60"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

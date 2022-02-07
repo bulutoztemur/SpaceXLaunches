@@ -9,6 +9,10 @@ target 'SpaceXLaunches' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'SDWebImage'
+  pod 'ImageSlideshow', '~> 1.9.0'
+  pod "ImageSlideshow/Alamofire"
+  pod "youtube-ios-player-helper"
+
 
   target 'SpaceXLaunchesTests' do
     inherit! :search_paths

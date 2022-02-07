@@ -84,7 +84,6 @@ extension LaunchesVC {
         guard let launchId = viewModel.filteredLaunches.value[indexPath.row].id else { return }
         let launchDetailVC = LaunchDetailsVC(id: launchId)
         navigationController?.pushViewController(launchDetailVC, animated: true)
-        
     }
 }
 

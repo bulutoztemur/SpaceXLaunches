@@ -1,4 +1,13 @@
 PODS:
+  - Alamofire (5.5.0)
+  - AlamofireImage (4.2.0):
+    - Alamofire (~> 5.4)
+  - ImageSlideshow (1.9.2):
+    - ImageSlideshow/Core (= 1.9.2)
+  - ImageSlideshow/Alamofire (1.9.2):
+    - AlamofireImage (~> 4.0)
+    - ImageSlideshow/Core
+  - ImageSlideshow/Core (1.9.2)
   - RxCocoa (6.2.0):
     - RxRelay (= 6.2.0)
     - RxSwift (= 6.2.0)
@@ -8,25 +17,37 @@ PODS:
   - SDWebImage (5.12.2):
     - SDWebImage/Core (= 5.12.2)
   - SDWebImage/Core (5.12.2)
+  - youtube-ios-player-helper (1.0.4)
 
 DEPENDENCIES:
+  - ImageSlideshow (~> 1.9.0)
+  - ImageSlideshow/Alamofire
   - RxCocoa
   - RxSwift
   - SDWebImage
+  - youtube-ios-player-helper
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - AlamofireImage
+    - ImageSlideshow
     - RxCocoa
     - RxRelay
     - RxSwift
     - SDWebImage
+    - youtube-ios-player-helper
 
 SPEC CHECKSUMS:
+  Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
+  AlamofireImage: 34a2d90b0e5fe6a5605f85ae4b7b01e784c60192
+  ImageSlideshow: be305b54eaf2b2cfc7a7141c7c734605d44dc07d
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SDWebImage: 240e5c12b592fb1268c1d03b8c90d90e8c2ffe82
+  youtube-ios-player-helper: e9b97535e816db3152179d84d999bc1807ecd689
 
-PODFILE CHECKSUM: 17b489c99e1f2ff1b9c6483dd708dfb3b54a2584
+PODFILE CHECKSUM: b9323d88e0fa0ba7c756ce23d83df4edb506d77d
 
 COCOAPODS: 1.10.1

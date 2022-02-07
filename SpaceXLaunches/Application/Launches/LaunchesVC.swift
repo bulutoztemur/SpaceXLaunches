@@ -8,13 +8,16 @@
 import UIKit
 
 class LaunchesVC: UITableViewController {
-    typealias DataSource = UITableViewDiffableDataSource<Section, LaunchListQuery.Data.Launch>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, LaunchListQuery.Data.Launch>
+    private enum Section {
+        case main
+    }
+
+    private typealias DataSource = UITableViewDiffableDataSource<Section, LaunchListQuery.Data.Launch>
+    private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, LaunchListQuery.Data.Launch>
 
     private let viewModel = LaunchesVM()
     private lazy var dataSource = makeDataSource()
-    
-    let searchController = UISearchController(searchResultsController: nil)
+    private let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -134,10 +137,6 @@ private extension LaunchesVC {
             })
             .disposed(by: viewModel.disposeBag)
     }
-}
-
-enum Section {
-    case main
 }
 
 extension LaunchListQuery.Data.Launch: Hashable {

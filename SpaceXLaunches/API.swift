@@ -11,32 +11,21 @@ public final class LaunchListQuery: GraphQLQuery {
     query LaunchList($offset: Int) {
       launches(offset: $offset, order: "desc", sort: "launch_date_utc", limit: 10) {
         __typename
+        id
         mission_name
         launch_date_utc
-        launch_date_local
         launch_site {
           __typename
           site_name_long
-          site_name
-        }
-        links {
-          __typename
-          flickr_images
-          article_link
-          video_link
-          mission_patch
         }
         rocket {
           __typename
           rocket_name
         }
-        ships {
+        links {
           __typename
-          home_port
-          image
-          weight_kg
+          mission_patch
         }
-        id
       }
     }
     """
@@ -87,14 +76,12 @@ public final class LaunchListQuery: GraphQLQuery {
       public static var selections: [GraphQLSelection] {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("id", type: .scalar(GraphQLID.self)),
           GraphQLField("mission_name", type: .scalar(String.self)),
           GraphQLField("launch_date_utc", type: .scalar(String.self)),
-          GraphQLField("launch_date_local", type: .scalar(String.self)),
           GraphQLField("launch_site", type: .object(LaunchSite.selections)),
-          GraphQLField("links", type: .object(Link.selections)),
           GraphQLField("rocket", type: .object(Rocket.selections)),
-          GraphQLField("ships", type: .list(.object(Ship.selections))),
-          GraphQLField("id", type: .scalar(GraphQLID.self)),
+          GraphQLField("links", type: .object(Link.selections)),
         ]
       }
 
@@ -104,8 +91,8 @@ public final class LaunchListQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(missionName: String? = nil, launchDateUtc: String? = nil, launchDateLocal: String? = nil, launchSite: LaunchSite? = nil, links: Link? = nil, rocket: Rocket? = nil, ships: [Ship?]? = nil, id: GraphQLID? = nil) {
-        self.init(unsafeResultMap: ["__typename": "Launch", "mission_name": missionName, "launch_date_utc": launchDateUtc, "launch_date_local": launchDateLocal, "launch_site": launchSite.flatMap { (value: LaunchSite) -> ResultMap in value.resultMap }, "links": links.flatMap { (value: Link) -> ResultMap in value.resultMap }, "rocket": rocket.flatMap { (value: Rocket) -> ResultMap in value.resultMap }, "ships": ships.flatMap { (value: [Ship?]) -> [ResultMap?] in value.map { (value: Ship?) -> ResultMap? in value.flatMap { (value: Ship) -> ResultMap in value.resultMap } } }, "id": id])
+      public init(id: GraphQLID? = nil, missionName: String? = nil, launchDateUtc: String? = nil, launchSite: LaunchSite? = nil, rocket: Rocket? = nil, links: Link? = nil) {
+        self.init(unsafeResultMap: ["__typename": "Launch", "id": id, "mission_name": missionName, "launch_date_utc": launchDateUtc, "launch_site": launchSite.flatMap { (value: LaunchSite) -> ResultMap in value.resultMap }, "rocket": rocket.flatMap { (value: Rocket) -> ResultMap in value.resultMap }, "links": links.flatMap { (value: Link) -> ResultMap in value.resultMap }])
       }
 
       public var __typename: String {
@@ -114,6 +101,15 @@ public final class LaunchListQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var id: GraphQLID? {
+        get {
+          return resultMap["id"] as? GraphQLID
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "id")
         }
       }
 
@@ -135,30 +131,12 @@ public final class LaunchListQuery: GraphQLQuery {
         }
       }
 
-      public var launchDateLocal: String? {
-        get {
-          return resultMap["launch_date_local"] as? String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "launch_date_local")
-        }
-      }
-
       public var launchSite: LaunchSite? {
         get {
           return (resultMap["launch_site"] as? ResultMap).flatMap { LaunchSite(unsafeResultMap: $0) }
         }
         set {
           resultMap.updateValue(newValue?.resultMap, forKey: "launch_site")
-        }
-      }
-
-      public var links: Link? {
-        get {
-          return (resultMap["links"] as? ResultMap).flatMap { Link(unsafeResultMap: $0) }
-        }
-        set {
-          resultMap.updateValue(newValue?.resultMap, forKey: "links")
         }
       }
 
@@ -171,21 +149,12 @@ public final class LaunchListQuery: GraphQLQuery {
         }
       }
 
-      public var ships: [Ship?]? {
+      public var links: Link? {
         get {
-          return (resultMap["ships"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Ship?] in value.map { (value: ResultMap?) -> Ship? in value.flatMap { (value: ResultMap) -> Ship in Ship(unsafeResultMap: value) } } }
+          return (resultMap["links"] as? ResultMap).flatMap { Link(unsafeResultMap: $0) }
         }
         set {
-          resultMap.updateValue(newValue.flatMap { (value: [Ship?]) -> [ResultMap?] in value.map { (value: Ship?) -> ResultMap? in value.flatMap { (value: Ship) -> ResultMap in value.resultMap } } }, forKey: "ships")
-        }
-      }
-
-      public var id: GraphQLID? {
-        get {
-          return resultMap["id"] as? GraphQLID
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "id")
+          resultMap.updateValue(newValue?.resultMap, forKey: "links")
         }
       }
 
@@ -196,7 +165,6 @@ public final class LaunchListQuery: GraphQLQuery {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("site_name_long", type: .scalar(String.self)),
-            GraphQLField("site_name", type: .scalar(String.self)),
           ]
         }
 
@@ -206,8 +174,8 @@ public final class LaunchListQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(siteNameLong: String? = nil, siteName: String? = nil) {
-          self.init(unsafeResultMap: ["__typename": "LaunchSite", "site_name_long": siteNameLong, "site_name": siteName])
+        public init(siteNameLong: String? = nil) {
+          self.init(unsafeResultMap: ["__typename": "LaunchSite", "site_name_long": siteNameLong])
         }
 
         public var __typename: String {
@@ -225,84 +193,6 @@ public final class LaunchListQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue, forKey: "site_name_long")
-          }
-        }
-
-        public var siteName: String? {
-          get {
-            return resultMap["site_name"] as? String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "site_name")
-          }
-        }
-      }
-
-      public struct Link: GraphQLSelectionSet {
-        public static let possibleTypes: [String] = ["LaunchLinks"]
-
-        public static var selections: [GraphQLSelection] {
-          return [
-            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLField("flickr_images", type: .list(.scalar(String.self))),
-            GraphQLField("article_link", type: .scalar(String.self)),
-            GraphQLField("video_link", type: .scalar(String.self)),
-            GraphQLField("mission_patch", type: .scalar(String.self)),
-          ]
-        }
-
-        public private(set) var resultMap: ResultMap
-
-        public init(unsafeResultMap: ResultMap) {
-          self.resultMap = unsafeResultMap
-        }
-
-        public init(flickrImages: [String?]? = nil, articleLink: String? = nil, videoLink: String? = nil, missionPatch: String? = nil) {
-          self.init(unsafeResultMap: ["__typename": "LaunchLinks", "flickr_images": flickrImages, "article_link": articleLink, "video_link": videoLink, "mission_patch": missionPatch])
-        }
-
-        public var __typename: String {
-          get {
-            return resultMap["__typename"]! as! String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "__typename")
-          }
-        }
-
-        public var flickrImages: [String?]? {
-          get {
-            return resultMap["flickr_images"] as? [String?]
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "flickr_images")
-          }
-        }
-
-        public var articleLink: String? {
-          get {
-            return resultMap["article_link"] as? String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "article_link")
-          }
-        }
-
-        public var videoLink: String? {
-          get {
-            return resultMap["video_link"] as? String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "video_link")
-          }
-        }
-
-        public var missionPatch: String? {
-          get {
-            return resultMap["mission_patch"] as? String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "mission_patch")
           }
         }
       }
@@ -346,15 +236,13 @@ public final class LaunchListQuery: GraphQLQuery {
         }
       }
 
-      public struct Ship: GraphQLSelectionSet {
-        public static let possibleTypes: [String] = ["Ship"]
+      public struct Link: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["LaunchLinks"]
 
         public static var selections: [GraphQLSelection] {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLField("home_port", type: .scalar(String.self)),
-            GraphQLField("image", type: .scalar(String.self)),
-            GraphQLField("weight_kg", type: .scalar(Int.self)),
+            GraphQLField("mission_patch", type: .scalar(String.self)),
           ]
         }
 
@@ -364,8 +252,8 @@ public final class LaunchListQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(homePort: String? = nil, image: String? = nil, weightKg: Int? = nil) {
-          self.init(unsafeResultMap: ["__typename": "Ship", "home_port": homePort, "image": image, "weight_kg": weightKg])
+        public init(missionPatch: String? = nil) {
+          self.init(unsafeResultMap: ["__typename": "LaunchLinks", "mission_patch": missionPatch])
         }
 
         public var __typename: String {
@@ -377,30 +265,12 @@ public final class LaunchListQuery: GraphQLQuery {
           }
         }
 
-        public var homePort: String? {
+        public var missionPatch: String? {
           get {
-            return resultMap["home_port"] as? String
+            return resultMap["mission_patch"] as? String
           }
           set {
-            resultMap.updateValue(newValue, forKey: "home_port")
-          }
-        }
-
-        public var image: String? {
-          get {
-            return resultMap["image"] as? String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "image")
-          }
-        }
-
-        public var weightKg: Int? {
-          get {
-            return resultMap["weight_kg"] as? Int
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "weight_kg")
+            resultMap.updateValue(newValue, forKey: "mission_patch")
           }
         }
       }

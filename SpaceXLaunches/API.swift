@@ -26,6 +26,7 @@ public final class LaunchDetailQuery: GraphQLQuery {
         }
         launch_success
         launch_date_utc
+        launch_date_unix
         mission_id
         rocket {
           __typename
@@ -104,6 +105,7 @@ public final class LaunchDetailQuery: GraphQLQuery {
           GraphQLField("links", type: .object(Link.selections)),
           GraphQLField("launch_success", type: .scalar(Bool.self)),
           GraphQLField("launch_date_utc", type: .scalar(String.self)),
+          GraphQLField("launch_date_unix", type: .scalar(String.self)),
           GraphQLField("mission_id", type: .list(.scalar(String.self))),
           GraphQLField("rocket", type: .object(Rocket.selections)),
         ]
@@ -115,8 +117,8 @@ public final class LaunchDetailQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(id: GraphQLID? = nil, details: String? = nil, missionName: String? = nil, links: Link? = nil, launchSuccess: Bool? = nil, launchDateUtc: String? = nil, missionId: [String?]? = nil, rocket: Rocket? = nil) {
-        self.init(unsafeResultMap: ["__typename": "Launch", "id": id, "details": details, "mission_name": missionName, "links": links.flatMap { (value: Link) -> ResultMap in value.resultMap }, "launch_success": launchSuccess, "launch_date_utc": launchDateUtc, "mission_id": missionId, "rocket": rocket.flatMap { (value: Rocket) -> ResultMap in value.resultMap }])
+      public init(id: GraphQLID? = nil, details: String? = nil, missionName: String? = nil, links: Link? = nil, launchSuccess: Bool? = nil, launchDateUtc: String? = nil, launchDateUnix: String? = nil, missionId: [String?]? = nil, rocket: Rocket? = nil) {
+        self.init(unsafeResultMap: ["__typename": "Launch", "id": id, "details": details, "mission_name": missionName, "links": links.flatMap { (value: Link) -> ResultMap in value.resultMap }, "launch_success": launchSuccess, "launch_date_utc": launchDateUtc, "launch_date_unix": launchDateUnix, "mission_id": missionId, "rocket": rocket.flatMap { (value: Rocket) -> ResultMap in value.resultMap }])
       }
 
       public var __typename: String {
@@ -179,6 +181,15 @@ public final class LaunchDetailQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "launch_date_utc")
+        }
+      }
+
+      public var launchDateUnix: String? {
+        get {
+          return resultMap["launch_date_unix"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "launch_date_unix")
         }
       }
 

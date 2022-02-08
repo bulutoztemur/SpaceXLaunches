@@ -14,6 +14,7 @@ query LaunchDetail($myId: ID!) {
     }
     launch_success
     launch_date_utc
+    launch_date_unix
     mission_id
     rocket {
       rocket_type

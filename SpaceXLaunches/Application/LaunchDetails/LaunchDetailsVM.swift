@@ -17,6 +17,7 @@ final class LaunchDetailsVM {
     let imageInputSources = BehaviorRelay<[InputSource]>(value: [])
     let missionPatchUrl = BehaviorRelay<String?>(value: nil)
     let missionName = BehaviorRelay<String?>(value: nil)
+    let infoPairs = BehaviorRelay<[KeyValuePair]>(value: [])
     let errorListener = BehaviorRelay<Error?>(value: nil)
     
     init() {
@@ -30,6 +31,11 @@ final class LaunchDetailsVM {
         } errorHandler: { error in
             self.errorListener.accept(error)
         }
+    }
+    
+    private func createPropertyPairs(_ launch: LaunchDetailQuery.Data.Launch) {
+//        let model: [KeyValuePair] = [KeyValuePair(key: "Success", value: (launch.launchSuccess ?? false) ? "YES" : "NO"),
+//                                     KeyValuePair(key: "Date", value: launch.launchDateUtc)]
     }
 }
 
@@ -49,8 +55,9 @@ extension LaunchDetailsVM {
                 self.imageInputSources.accept(inputs ?? [])
                 self.missionPatchUrl.accept(launch.links?.missionPatchSmall)
                 self.missionName.accept(launch.missionName)
+                
+                let mydate = DateUtil.getStringFromDateUnix(dateUnix: Double(launch.launchDateUnix ?? "0")!, dateFormat: .ddMMMMyyyyWithSpace)
             })
             .disposed(by: disposeBag)
-        
     }
 }

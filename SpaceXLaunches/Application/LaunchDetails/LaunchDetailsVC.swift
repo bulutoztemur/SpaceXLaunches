@@ -30,10 +30,12 @@ class LaunchDetailsVC: UIViewController {
     
     @IBOutlet weak var missionPatchImageView: UIImageView!
     @IBOutlet weak var missionNameLabel: UILabel!
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var launchTableView: UITableView! {
         didSet {
             launchTableView.register(cellClass: KeyValueCell.self)
             launchTableView.tableFooterView = UIView(frame: .zero)
+            launchTableView.estimatedRowHeight = UITableView.automaticDimension;
         }
     }
     
@@ -60,10 +62,11 @@ class LaunchDetailsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .dark
         bind()
         viewModel.fetchDetails(id: launchId)
     }
-
+    
     @objc func didTapImage() {
         imageSlideShow.presentFullScreenController(from: self)
     }

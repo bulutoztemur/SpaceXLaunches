@@ -22,6 +22,7 @@ class KeyValueCell: UITableViewCell {
     private let keyLabel: UILabel = {
         let keyLabel = UILabel()
         keyLabel.translatesAutoresizingMaskIntoConstraints = false
+        keyLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 20)
         keyLabel.numberOfLines = 0
         return keyLabel
     }()
@@ -39,6 +40,7 @@ class KeyValueCell: UITableViewCell {
         let valueLabel = UILabel()
         valueLabel.translatesAutoresizingMaskIntoConstraints = false
         valueLabel.textAlignment = .right
+        valueLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 20)
         valueLabel.numberOfLines = 0
         return valueLabel
     }()
@@ -47,7 +49,7 @@ class KeyValueCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(systemName: "chevron.right")
-        imageView.tintColor = .black
+        imageView.tintColor = .white
         return imageView
     }()
     
@@ -70,6 +72,7 @@ class KeyValueCell: UITableViewCell {
     }
     
     private func configureCell() {
+        backgroundColor = .clear
         selectionStyle = .none
         separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }

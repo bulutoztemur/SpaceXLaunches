@@ -4,14 +4,13 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LaunchDetailsVC" customModule="SpaceXLaunches" customModuleProvider="target">
             <connections>
                 <outlet property="imageSlideShow" destination="J7K-SJ-VXl" id="oS0-03-ob7"/>
-                <outlet property="launchTableView" destination="5fd-yq-13q" id="ww4-qm-9Xa"/>
+                <outlet property="launchTableView" destination="5fd-yq-13q" id="flH-U7-TDX"/>
                 <outlet property="missionNameLabel" destination="S4x-Eb-b87" id="9Yk-bE-MJB"/>
                 <outlet property="missionPatchImageView" destination="YdC-Vk-jKG" id="9N2-bk-8Ec"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -36,18 +35,18 @@
                                         <constraint firstAttribute="width" secondItem="rHE-Ms-80N" secondAttribute="height" multiplier="16:11" id="GdQ-bK-QXP"/>
                                     </constraints>
                                 </view>
-                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Fna-Yu-ev2">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Fna-Yu-ev2">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="396"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YdC-Vk-jKG">
-                                            <rect key="frame" x="8" y="52" width="30" height="30"/>
+                                            <rect key="frame" x="8" y="205" width="30" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="T5f-X2-gYC"/>
                                                 <constraint firstAttribute="width" constant="30" id="z1N-UF-euW"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4x-Eb-b87">
-                                            <rect key="frame" x="46" y="52" width="360" height="30"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4x-Eb-b87">
+                                            <rect key="frame" x="46" y="220" width="360" height="0.0"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -56,15 +55,15 @@
                                     <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 </stackView>
                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J7K-SJ-VXl" customClass="ImageSlideshow" customModule="ImageSlideshow">
-                                    <rect key="frame" x="0.0" y="90" width="414" height="284.5"/>
+                                    <rect key="frame" x="0.0" y="396" width="414" height="284.5"/>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="J7K-SJ-VXl" secondAttribute="height" multiplier="16:11" id="8UR-iw-mJI"/>
                                     </constraints>
                                 </view>
-                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5fd-yq-13q">
-                                    <rect key="frame" x="0.0" y="90" width="414" height="806"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5fd-yq-13q">
+                                    <rect key="frame" x="0.0" y="396" width="414" height="500"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </tableView>
                             </subviews>
                             <constraints>
@@ -98,9 +97,4 @@
             <point key="canvasLocation" x="-346" y="60"/>
         </view>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

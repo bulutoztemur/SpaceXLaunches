@@ -38,6 +38,8 @@ private extension LaunchesVC {
     func configureNavigationBar() {
         navigationItem.title = "SpaceX Launches"
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
+        overrideUserInterfaceStyle = .dark
+        navigationController?.overrideUserInterfaceStyle = .dark
     }
     
     func configureTableView() {

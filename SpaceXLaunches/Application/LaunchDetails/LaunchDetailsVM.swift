@@ -12,7 +12,7 @@ import ImageSlideshow
 
 final class LaunchDetailsVM {
     let disposeBag = DisposeBag()
-    let launch = BehaviorRelay<LaunchDetailQuery.Data.Launch?>(value: nil)
+    private let launch = BehaviorRelay<LaunchDetailQuery.Data.Launch?>(value: nil)
     let youtubeVideoId = BehaviorRelay<String?>(value: nil)
     let imageInputSources = BehaviorRelay<[InputSource]>(value: [])
     let missionPatchUrl = BehaviorRelay<String?>(value: nil)

@@ -11,7 +11,6 @@
             <connections>
                 <outlet property="imageSlideShow" destination="J7K-SJ-VXl" id="oS0-03-ob7"/>
                 <outlet property="launchTableView" destination="5fd-yq-13q" id="flH-U7-TDX"/>
-                <outlet property="launchTableViewHeightConstraint" destination="3Uc-gN-25P" id="Fwo-nu-QPG"/>
                 <outlet property="missionNameLabel" destination="S4x-Eb-b87" id="9Yk-bE-MJB"/>
                 <outlet property="missionPatchImageView" destination="YdC-Vk-jKG" id="9N2-bk-8Ec"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -72,12 +71,9 @@
                                         <constraint firstItem="J7K-SJ-VXl" firstAttribute="leading" secondItem="auZ-rx-u30" secondAttribute="leading" id="tnT-TP-XOB"/>
                                     </constraints>
                                 </stackView>
-                                <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5fd-yq-13q">
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="50" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5fd-yq-13q" customClass="ContentSizedTableView" customModule="SpaceXLaunches" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="90" width="414" height="50"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="50" id="3Uc-gN-25P"/>
-                                    </constraints>
                                     <connections>
                                         <outlet property="delegate" destination="-1" id="rks-WH-mhk"/>
                                     </connections>

@@ -30,8 +30,7 @@ class LaunchDetailsVC: UIViewController {
     
     @IBOutlet weak var missionPatchImageView: UIImageView!
     @IBOutlet weak var missionNameLabel: UILabel!
-    @IBOutlet weak var launchTableViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var launchTableView: UITableView! {
+    @IBOutlet weak var launchTableView: ContentSizedTableView! {
         didSet {
             launchTableView.register(cellClass: KeyValueCell.self)
             launchTableView.tableFooterView = UIView(frame: .zero)
@@ -67,12 +66,6 @@ class LaunchDetailsVC: UIViewController {
         viewModel.fetchDetails(id: launchId)
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        launchTableViewHeightConstraint.constant = CGFloat.greatestFiniteMagnitude
-        launchTableView.layoutIfNeeded()
-        launchTableViewHeightConstraint.constant = launchTableView.contentSize.height
-    }
     
     @objc func didTapImage() {
         imageSlideShow.presentFullScreenController(from: self)

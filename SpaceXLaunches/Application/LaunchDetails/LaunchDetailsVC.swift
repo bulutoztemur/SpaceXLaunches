@@ -30,7 +30,7 @@ class LaunchDetailsVC: UIViewController {
     
     @IBOutlet weak var missionPatchImageView: UIImageView!
     @IBOutlet weak var missionNameLabel: UILabel!
-    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var launchTableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var launchTableView: UITableView! {
         didSet {
             launchTableView.register(cellClass: KeyValueCell.self)
@@ -65,6 +65,13 @@ class LaunchDetailsVC: UIViewController {
         overrideUserInterfaceStyle = .dark
         bind()
         viewModel.fetchDetails(id: launchId)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        launchTableViewHeightConstraint.constant = CGFloat.greatestFiniteMagnitude
+        launchTableView.layoutIfNeeded()
+        launchTableViewHeightConstraint.constant = launchTableView.contentSize.height
     }
     
     @objc func didTapImage() {

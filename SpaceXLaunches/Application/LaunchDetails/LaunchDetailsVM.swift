@@ -19,7 +19,6 @@ final class LaunchDetailsVM {
     let missionName = BehaviorRelay<String?>(value: nil)
     let infoPairs = BehaviorRelay<[KeyValuePair]>(value: [])
     let linkPairs = BehaviorRelay<[KeyValuePair]>(value: [])
-    let details = BehaviorRelay<String?>(value: nil)
     let errorListener = BehaviorRelay<Error?>(value: nil)
     
     init() {
@@ -71,7 +70,6 @@ private extension LaunchDetailsVM {
                 self.missionName.accept(launch.missionName)
                 self.infoPairs.accept(self.createInfoPairs(launch))
                 self.linkPairs.accept(self.createLinkPairs(launch))
-                self.details.accept(launch.details)
             })
             .disposed(by: disposeBag)
     }

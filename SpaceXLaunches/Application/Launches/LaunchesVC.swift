@@ -16,7 +16,7 @@ class LaunchesVC: UITableViewController {
     private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, LaunchListQuery.Data.Launch>
     
     private let viewModel = LaunchesVM()
-    private lazy var dataSource = makeDataSource()
+    private lazy var dataSource = createDataSource()
     private let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
@@ -67,8 +67,8 @@ private extension LaunchesVC {
 }
 
 //MARK:- UITableViewDiffableDataSource Operations
-private extension LaunchesVC {
-    private func makeDataSource() -> DataSource {
+extension LaunchesVC {
+    private func createDataSource() -> DataSource {
         return DataSource(tableView: tableView,
                           cellProvider: { [weak self] (tableView, indexPath, launch) -> UITableViewCell? in
                             self?.viewModel.currentIndex.accept(indexPath.row)

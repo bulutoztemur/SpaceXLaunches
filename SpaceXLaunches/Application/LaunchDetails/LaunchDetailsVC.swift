@@ -30,6 +30,22 @@ class LaunchDetailsVC: UIViewController {
     
     @IBOutlet weak var missionPatchImageView: UIImageView!
     @IBOutlet weak var missionNameLabel: UILabel!
+    @IBOutlet weak var launchTableView: UITableView! {
+        didSet {
+            launchTableView.register(cellClass: KeyValueCell.self)
+            launchTableView.tableFooterView = UIView(frame: .zero)
+        }
+    }
+    
+    private enum Section {
+        case details, links
+    }
+    
+    private typealias DataSource = UITableViewDiffableDataSource<Section, KeyValuePair>
+    private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, KeyValuePair>
+    
+    private lazy var dataSource = createDataSource()
+
     
     private let launchId: String
 
@@ -53,6 +69,25 @@ class LaunchDetailsVC: UIViewController {
     }
 }
 
+//MARK:- UITableViewDiffableDataSource Operations
+extension LaunchDetailsVC {
+    private func createDataSource() -> DataSource {
+        return DataSource(tableView: launchTableView,
+                          cellProvider: { (tableView, indexPath, pair) -> UITableViewCell? in
+                            if indexPath.section == 0 {
+                                let cell = tableView.dequeueReusableCell(withIdentifier: KeyValueCell.reuseIdentifier, for: indexPath) as? KeyValueCell
+                                cell?.configure(pairInfo: pair, isLink: false)
+                                return cell
+                            } else if indexPath.section == 1 {
+                                let cell = tableView.dequeueReusableCell(withIdentifier: KeyValueCell.reuseIdentifier, for: indexPath) as? KeyValueCell
+                                cell?.configure(pairInfo: pair, isLink: true)
+                                return cell
+                            }
+                            return UITableViewCell()
+                          })
+    }
+}
+
 //MARK:- Binding Operations
 private extension LaunchDetailsVC {
     func bind() {
@@ -61,6 +96,7 @@ private extension LaunchDetailsVC {
         bindYoutubeVideoId()
         bindMissionPatchSmall()
         bindMissionName()
+        bindPairs()
     }
     
     func bindImageInputSources() {
@@ -112,6 +148,19 @@ private extension LaunchDetailsVC {
                 self.showPopup(withTitle: "Network Error",
                                 message: error.localizedDescription,
                                 OkHandler: { self.navigationController?.popViewController(animated: true) })
+            })
+            .disposed(by: viewModel.disposeBag)
+    }
+    
+    func bindPairs() {
+        Observable.combineLatest(viewModel.infoPairs, viewModel.linkPairs)
+            .subscribe(onNext: { [weak self] infoPairs, linkPairs in
+                var snapshot = Snapshot()
+                snapshot.appendSections([.details, .links])
+                snapshot.appendItems(infoPairs, toSection: .details)
+                snapshot.appendItems(linkPairs, toSection: .links)
+                self?.dataSource.apply(snapshot, animatingDifferences: false)
+
             })
             .disposed(by: viewModel.disposeBag)
     }

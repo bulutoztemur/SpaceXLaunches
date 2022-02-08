@@ -7,32 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6BD2CEF0-0E20-49C4-A6DB-4CF54D39E130"
+            uuid = "3EEC1300-E86D-46C4-85A7-6AB49733FC3C"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SpaceXLaunches/Application/Launches/LaunchesVM.swift"
+            filePath = "SpaceXLaunches/Application/LaunchDetails/LaunchDetailsVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "fetch(errorHandler:)"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "bindLaunch()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "69B1196C-AC10-4A8C-8F2C-F19D2763D1C6"
+            uuid = "534CF0AD-3EB6-4181-8263-3D5597AB4B1F"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SpaceXLaunches/Application/Launches/LaunchesVC.swift"
+            filePath = "SpaceXLaunches/Application/LaunchDetails/LaunchDetailsVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "makeDataSource()"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "createDataSource()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

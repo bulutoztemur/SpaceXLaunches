@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LaunchDetailsVC" customModule="SpaceXLaunches" customModuleProvider="target">
             <connections>
                 <outlet property="imageSlideShow" destination="J7K-SJ-VXl" id="oS0-03-ob7"/>
+                <outlet property="launchTableView" destination="5fd-yq-13q" id="ww4-qm-9Xa"/>
                 <outlet property="missionNameLabel" destination="S4x-Eb-b87" id="9Yk-bE-MJB"/>
                 <outlet property="missionPatchImageView" destination="YdC-Vk-jKG" id="9N2-bk-8Ec"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

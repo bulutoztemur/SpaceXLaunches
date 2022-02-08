@@ -13,10 +13,12 @@ class LaunchCell: UITableViewCell {
     var launch: LaunchListQuery.Data.Launch? {
         didSet {
             let placeholder = UIImage(named: "SpaceX")
-            if let missionPatch = launch?.links?.missionPatch {
-              self.missionPatchImageView.sd_setImage(with: URL(string: missionPatch)!, placeholderImage: placeholder)
+            if let missionPatch = launch?.links?.missionPatchSmall {
+                self.missionPatchImageView.sd_setImage(with: URL(string: missionPatch)!, placeholderImage: placeholder)
+                self.missionPatchImageView.backgroundColor = .clear
             } else {
-              self.missionPatchImageView.image = placeholder
+                self.missionPatchImageView.image = placeholder
+                self.missionPatchImageView.backgroundColor = .white
             }
             missionNameLabel.text = launch?.missionName
             rocketNameLabel.text = launch?.rocket?.rocketName
@@ -33,7 +35,7 @@ class LaunchCell: UITableViewCell {
         super.awakeFromNib()
         selectionStyle = .none
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }

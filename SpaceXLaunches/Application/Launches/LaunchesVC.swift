@@ -118,7 +118,8 @@ private extension LaunchesVC {
         viewModel.errorListener
             .compactMap{$0}
             .subscribe(onNext: { [weak self] error in
-                self?.showPopup(withTitle: "Network Error", message: error.localizedDescription)
+                self?.showPopup(withTitle: "Network Error",
+                                message: error.localizedDescription)
             })
             .disposed(by: viewModel.disposeBag)
     }

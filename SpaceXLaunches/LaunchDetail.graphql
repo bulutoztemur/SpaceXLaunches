@@ -10,6 +10,7 @@ query LaunchDetail($myId: ID!) {
       article_link
       wikipedia
       reddit_campaign
+      mission_patch_small
     }
     launch_success
     launch_date_utc

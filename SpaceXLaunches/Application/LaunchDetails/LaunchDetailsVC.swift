@@ -28,6 +28,9 @@ class LaunchDetailsVC: UIViewController {
         }
     }
     
+    @IBOutlet weak var missionPatchImageView: UIImageView!
+    @IBOutlet weak var missionNameLabel: UILabel!
+    
     private let launchId: String
 
     init(id: String) {
@@ -51,28 +54,65 @@ class LaunchDetailsVC: UIViewController {
 }
 
 //MARK:- Binding Operations
-extension LaunchDetailsVC {
+private extension LaunchDetailsVC {
     func bind() {
-        viewModel.launch
-            .flatMap { $0.map(Observable.just) ?? Observable.empty() }
-            .subscribe(onNext: { [weak self] launch in
-                if let links = launch.links {
-                    if let youtubeLink = links.videoLink {
-                        let splitted = youtubeLink.split(separator: "/")
-                        let videoId = String(splitted[splitted.count - 1])
-                        self?.ytPlayerView.load(withVideoId: videoId)
-                    } else {
-                        self?.ytPlayerView.isHidden = true
-                    }
-                    
-                    if let inputs = links.flickrImages?.compactMap({ AlamofireSource(urlString: $0!) }), !inputs.isEmpty {
-                        self?.imageSlideShow.setImageInputs(inputs)
-                    } else {
-                        self?.imageSlideShow.isHidden = true
-                    }
-                    
+        bindError()
+        bindImageInputSources()
+        bindYoutubeVideoId()
+        bindMissionPatchSmall()
+        bindMissionName()
+    }
+    
+    func bindImageInputSources() {
+        viewModel.imageInputSources
+            .filter { !$0.isEmpty }
+            .subscribe(onNext: { [weak self] imageInputSources in
+                self?.imageSlideShow.setImageInputs(imageInputSources)
+                self?.imageSlideShow.isHidden = false
+            })
+            .disposed(by: viewModel.disposeBag)
+    }
+    
+    func bindYoutubeVideoId() {
+        viewModel.youtubeVideoId
+            .filter { !($0?.isEmpty ?? true) }
+            .subscribe(onNext: { [weak self] youtubeVideoId in
+                self?.ytPlayerView.load(withVideoId: youtubeVideoId!)
+                self?.ytPlayerView.isHidden = false
+            })
+            .disposed(by: viewModel.disposeBag)
+    }
+    
+    func bindMissionPatchSmall() {
+        viewModel.missionPatchUrl
+            .subscribe(onNext: { [weak self] missionPatchUrl in
+                let placeholder = UIImage(named: "SpaceX")
+                if let missionPatch = missionPatchUrl {
+                  self?.missionPatchImageView.sd_setImage(with: URL(string: missionPatch)!, placeholderImage: placeholder)
+                } else {
+                  self?.missionPatchImageView.image = placeholder
                 }
             })
             .disposed(by: viewModel.disposeBag)
-        }
+    }
+    
+    func bindMissionName() {
+        viewModel.missionName
+            .asDriver()
+            .filter { $0 != nil }
+            .drive(missionNameLabel.rx.text)
+            .disposed(by: viewModel.disposeBag)
+    }
+    
+    func bindError() {
+        viewModel.errorListener
+            .compactMap{$0}
+            .subscribe(onNext: { [weak self] error in
+                guard let self = self else { return }
+                self.showPopup(withTitle: "Network Error",
+                                message: error.localizedDescription,
+                                OkHandler: { self.navigationController?.popViewController(animated: true) })
+            })
+            .disposed(by: viewModel.disposeBag)
+    }
 }

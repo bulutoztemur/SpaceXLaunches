@@ -10,7 +10,7 @@ query LaunchList($offset: Int) {
       rocket_name
     }
     links {
-      mission_patch
+      mission_patch_small
     }
   }
 }

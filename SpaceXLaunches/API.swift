@@ -22,6 +22,7 @@ public final class LaunchDetailQuery: GraphQLQuery {
           article_link
           wikipedia
           reddit_campaign
+          mission_patch_small
         }
         launch_success
         launch_date_utc
@@ -211,6 +212,7 @@ public final class LaunchDetailQuery: GraphQLQuery {
             GraphQLField("article_link", type: .scalar(String.self)),
             GraphQLField("wikipedia", type: .scalar(String.self)),
             GraphQLField("reddit_campaign", type: .scalar(String.self)),
+            GraphQLField("mission_patch_small", type: .scalar(String.self)),
           ]
         }
 
@@ -220,8 +222,8 @@ public final class LaunchDetailQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(flickrImages: [String?]? = nil, videoLink: String? = nil, redditMedia: String? = nil, articleLink: String? = nil, wikipedia: String? = nil, redditCampaign: String? = nil) {
-          self.init(unsafeResultMap: ["__typename": "LaunchLinks", "flickr_images": flickrImages, "video_link": videoLink, "reddit_media": redditMedia, "article_link": articleLink, "wikipedia": wikipedia, "reddit_campaign": redditCampaign])
+        public init(flickrImages: [String?]? = nil, videoLink: String? = nil, redditMedia: String? = nil, articleLink: String? = nil, wikipedia: String? = nil, redditCampaign: String? = nil, missionPatchSmall: String? = nil) {
+          self.init(unsafeResultMap: ["__typename": "LaunchLinks", "flickr_images": flickrImages, "video_link": videoLink, "reddit_media": redditMedia, "article_link": articleLink, "wikipedia": wikipedia, "reddit_campaign": redditCampaign, "mission_patch_small": missionPatchSmall])
         }
 
         public var __typename: String {
@@ -284,6 +286,15 @@ public final class LaunchDetailQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue, forKey: "reddit_campaign")
+          }
+        }
+
+        public var missionPatchSmall: String? {
+          get {
+            return resultMap["mission_patch_small"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "mission_patch_small")
           }
         }
       }
@@ -547,7 +558,7 @@ public final class LaunchListQuery: GraphQLQuery {
         }
         links {
           __typename
-          mission_patch
+          mission_patch_small
         }
       }
     }
@@ -765,7 +776,7 @@ public final class LaunchListQuery: GraphQLQuery {
         public static var selections: [GraphQLSelection] {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLField("mission_patch", type: .scalar(String.self)),
+            GraphQLField("mission_patch_small", type: .scalar(String.self)),
           ]
         }
 
@@ -775,8 +786,8 @@ public final class LaunchListQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(missionPatch: String? = nil) {
-          self.init(unsafeResultMap: ["__typename": "LaunchLinks", "mission_patch": missionPatch])
+        public init(missionPatchSmall: String? = nil) {
+          self.init(unsafeResultMap: ["__typename": "LaunchLinks", "mission_patch_small": missionPatchSmall])
         }
 
         public var __typename: String {
@@ -788,12 +799,12 @@ public final class LaunchListQuery: GraphQLQuery {
           }
         }
 
-        public var missionPatch: String? {
+        public var missionPatchSmall: String? {
           get {
-            return resultMap["mission_patch"] as? String
+            return resultMap["mission_patch_small"] as? String
           }
           set {
-            resultMap.updateValue(newValue, forKey: "mission_patch")
+            resultMap.updateValue(newValue, forKey: "mission_patch_small")
           }
         }
       }

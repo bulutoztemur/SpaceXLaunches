@@ -18,6 +18,8 @@ final class LaunchDetailsVM {
     let missionPatchUrl = BehaviorRelay<String?>(value: nil)
     let missionName = BehaviorRelay<String?>(value: nil)
     let infoPairs = BehaviorRelay<[KeyValuePair]>(value: [])
+    let linkPairs = BehaviorRelay<[KeyValuePair]>(value: [])
+    let details = BehaviorRelay<String?>(value: nil)
     let errorListener = BehaviorRelay<Error?>(value: nil)
     
     init() {
@@ -33,13 +35,25 @@ final class LaunchDetailsVM {
         }
     }
     
-    private func createPropertyPairs(_ launch: LaunchDetailQuery.Data.Launch) {
-//        let model: [KeyValuePair] = [KeyValuePair(key: "Success", value: (launch.launchSuccess ?? false) ? "YES" : "NO"),
-//                                     KeyValuePair(key: "Date", value: launch.launchDateUtc)]
+    private func createInfoPairs(_ launch: LaunchDetailQuery.Data.Launch) -> [KeyValuePair] {
+        return [KeyValuePair(key: "Result", value: (launch.launchSuccess ?? false) ? "Successful" : "Unsuccessful"),
+                KeyValuePair(key: "Date", value: DateUtil.getStringFromDateUnix(dateUnix: Double(launch.launchDateUnix ?? "0")!, dateFormat: .ddMMMMyyyyWithSpace))]
+    }
+    
+    private func createLinkPairs(_ launch: LaunchDetailQuery.Data.Launch) -> [KeyValuePair] {
+        guard let links = launch.links else { return [] }
+        var pairList: [KeyValuePair] = []
+        if let wikiLink = links.wikipedia {
+            pairList.append(KeyValuePair(key: "Wikipedia", value: wikiLink))
+        }
+        if let articleLink = links.articleLink {
+            pairList.append(KeyValuePair(key: "Article", value: articleLink))
+        }
+        return pairList
     }
 }
 
-extension LaunchDetailsVM {
+private extension LaunchDetailsVM {
     func bind() {
         bindLaunch()
     }
@@ -55,8 +69,9 @@ extension LaunchDetailsVM {
                 self.imageInputSources.accept(inputs ?? [])
                 self.missionPatchUrl.accept(launch.links?.missionPatchSmall)
                 self.missionName.accept(launch.missionName)
-                
-                let mydate = DateUtil.getStringFromDateUnix(dateUnix: Double(launch.launchDateUnix ?? "0")!, dateFormat: .ddMMMMyyyyWithSpace)
+                self.infoPairs.accept(self.createInfoPairs(launch))
+                self.linkPairs.accept(self.createLinkPairs(launch))
+                self.details.accept(launch.details)
             })
             .disposed(by: disposeBag)
     }

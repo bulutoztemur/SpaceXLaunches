@@ -35,6 +35,7 @@
 		88C5E77E27B2AEE2007E7FDC /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C5E77D27B2AEE2007E7FDC /* DateFormatter+Extension.swift */; };
 		88C5E78427B2AF10007E7FDC /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C5E78327B2AF10007E7FDC /* DateFormat.swift */; };
 		88C5E78D27B2E4B4007E7FDC /* KeyValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C5E78C27B2E4B4007E7FDC /* KeyValueCell.swift */; };
+		88C5E79A27B30C92007E7FDC /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C5E79927B30C92007E7FDC /* WebViewVC.swift */; };
 		BCDE7E072E2A31C08DF2FE72 /* Pods_SpaceXLaunches_SpaceXLaunchesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28AD4BCD1E4C3ABF535921AD /* Pods_SpaceXLaunches_SpaceXLaunchesUITests.framework */; };
 		EBEA65E6B61D837D2A103343 /* Pods_SpaceXLaunchesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E1CFA6CB6C98BC94C975483 /* Pods_SpaceXLaunchesTests.framework */; };
 /* End PBXBuildFile section */
@@ -97,6 +98,7 @@
 		88C5E77D27B2AEE2007E7FDC /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		88C5E78327B2AF10007E7FDC /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		88C5E78C27B2E4B4007E7FDC /* KeyValueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueCell.swift; sourceTree = "<group>"; };
+		88C5E79927B30C92007E7FDC /* WebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
 		9AA7B24FDF3FA1F74BC02D3B /* Pods-SpaceXLaunchesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXLaunchesTests.debug.xcconfig"; path = "Target Support Files/Pods-SpaceXLaunchesTests/Pods-SpaceXLaunchesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E310173B84BB4973151B0118 /* Pods-SpaceXLaunches.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXLaunches.release.xcconfig"; path = "Target Support Files/Pods-SpaceXLaunches/Pods-SpaceXLaunches.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -222,6 +224,7 @@
 		8833A05427AFD46700AB09ED /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				88C5E79827B30C5C007E7FDC /* WebView */,
 				8833A07627AFD4EA00AB09ED /* LaunchDetails */,
 				8833A06627AFD4C700AB09ED /* Launches */,
 			);
@@ -327,6 +330,14 @@
 				88C5E78327B2AF10007E7FDC /* DateFormat.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		88C5E79827B30C5C007E7FDC /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				88C5E79927B30C92007E7FDC /* WebViewVC.swift */,
+			);
+			path = WebView;
 			sourceTree = "<group>";
 		};
 		C4F6EDD30E71104378B6A680 /* Frameworks */ = {
@@ -618,6 +629,7 @@
 				8833A07927AFD4FE00AB09ED /* LaunchDetailsVC.swift in Sources */,
 				8833A08227AFD50700AB09ED /* LaunchDetailsVM.swift in Sources */,
 				88339FF427AFCE1D00AB09ED /* AppDelegate.swift in Sources */,
+				88C5E79A27B30C92007E7FDC /* WebViewVC.swift in Sources */,
 				8833A04027AFD19300AB09ED /* API.swift in Sources */,
 				88339FF627AFCE1D00AB09ED /* SceneDelegate.swift in Sources */,
 				88C5E77427B29F01007E7FDC /* KeyValuePair.swift in Sources */,

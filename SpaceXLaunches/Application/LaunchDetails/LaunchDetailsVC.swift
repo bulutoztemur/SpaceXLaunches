@@ -98,6 +98,15 @@ extension LaunchDetailsVC {
     }
 }
 
+extension LaunchDetailsVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let video = dataSource.itemIdentifier(for: indexPath), indexPath.section == 1 else {
+          return
+        }
+        navigationController?.pushViewController(WebViewVC(url: video.value), animated: true)
+    }
+}
+
 //MARK:- Binding Operations
 private extension LaunchDetailsVC {
     func bind() {

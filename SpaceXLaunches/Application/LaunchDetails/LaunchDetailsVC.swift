@@ -125,7 +125,7 @@ private extension LaunchDetailsVC {
         viewModel.youtubeVideoId
             .filter { !($0?.isEmpty ?? true) }
             .subscribe(onNext: { [weak self] youtubeVideoId in
-                self?.ytPlayerView.load(withVideoId: youtubeVideoId!)
+                self?.ytPlayerView.load(withVideoId: youtubeVideoId!, playerVars: ["playsinline": 1])
                 self?.ytPlayerView.isHidden = false
             })
             .disposed(by: viewModel.disposeBag)

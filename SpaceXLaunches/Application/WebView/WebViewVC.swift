@@ -20,7 +20,8 @@ class WebViewVC: UIViewController {
         return webView
     }()
     
-    let link: String
+    private let link: String
+    
     init(url: String) {
         self.link = url
         super.init(nibName: nil, bundle: nil)
